@@ -4,14 +4,14 @@ import dash_bootstrap_components as dbc
 from dash.exceptions import PreventUpdate
 #import plotly.express as px
 import pandas as pd
-import re, math
+import re, math, os
 
 # Incorporate data
 
-weapons_df = pd.read_csv('src/weapons2.csv', index_col = 0)
-ammo_df = pd.read_csv('src/ammo.csv', index_col = 0, skiprows=[1,2,3,4,5,6,7,8])
-stalkers_df = pd.read_csv('src/curated_npc_profiles.csv', index_col = 0)
-mutants_df = pd.read_csv('src/mutants.csv', index_col = 0, skiprows=[1])
+weapons_df = pd.read_csv('damage-sim/src/weapons2.csv', index_col = 0)
+ammo_df = pd.read_csv('damage-sim/src/ammo.csv', index_col = 0, skiprows=[1,2,3,4,5,6,7,8])
+stalkers_df = pd.read_csv('damage-sim/src/curated_npc_profiles.csv', index_col = 0)
+mutants_df = pd.read_csv('damage-sim/src/mutants.csv', index_col = 0, skiprows=[1])
 ids_df = pd.concat([weapons_df[['name']], ammo_df[['name']], mutants_df[['name']], stalkers_df[['name']]])
 
 #Other important data
@@ -365,7 +365,7 @@ def anomaly_engine_pen(gbo_dmg, bullet, target, hitzone): #how the engine handle
 # Initialize the app
 
 #style = "path/to/stylesheet.css"
-app = Dash(external_stylesheets=[dbc.themes.DARKLY, 'assets/style.css'])
+app = Dash(external_stylesheets=[dbc.themes.DARKLY, 'damage-sim/assets/style.css'])
 
 # Theming
 
