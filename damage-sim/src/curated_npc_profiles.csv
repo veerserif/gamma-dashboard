@@ -1,0 +1,38 @@
+id,name,hit_fraction,ap_scale,body_bonearmor,head_bonearmor
+stalker_army_uniform,"Military, light, no helmet",0.6,0.85,0.075,0
+stalker_army_uniform_2,"Military, light, helmet",0.6,0.85,0.075,0.3
+stalker_assault_vest,"Light assault vest, no helmet",0.3,0.75,0.25,0
+stalker_bandit_3,"Bandit, light armor, no helmet",0.85,0.9,0.011,0
+stalker_berill,"Berill-5M, medium, no helmet",0.3,0.75,0.2,0
+stalker_berill_3,"Berill-5M, medium, helmet",0.3,0.75,0.2,0.3
+stalker_exo,"Exosuit, helmet",0.15,0.7,0.55,0.3
+stalker_exo_n,"Exosuit, heavy helmet",0.15,0.7,0.65,0.35
+stalker_exo_s,"Exosuit, light helmet",0.15,0.7,0.55,0.15
+stalker_exolight,"Exolight, helmet",0.3,0.7,0.3,0.3
+stalker_lcs,"LCS, medium, no helmet",0.5,0.8,0.15,0
+stalker_lcs_3,"LCS, medium, helmet",0.5,0.8,0.15,0.3
+stalker_monolith_1,"Monolith, medium, helmet",0.4,0.8,0.15,0.15
+stalker_nbc,"Tactical suit, medium, no helmet",0.7,0.85,0.15,0
+stalker_nebo_1,"Clear Sky, medium, helmet",0.5,0.75,0.1,0.2
+stalker_neutral_1,Generic light armor,0.9,0.9,0.011,0
+stalker_neutral_2,Generic medium armor,0.5,0.8,0.1,0
+stalker_neutral_3,Generic heavy armor,0.2,0.75,0.4,0.3
+stalker_neutral_4,Generic exo armor,0.15,0.7,0.55,0.3
+stalker_novice,"Light armor, no helmet",0.9,0.9,0.011,0
+stalker_novice_3,"Light armor, helmet",0.9,0.9,0.011,0.3
+stalker_proto_1,"Proto-exo, no helmet",0.45,0.7,0.2,0
+stalker_ps5,"PS5, medium, no helmet",0.45,0.8,0.15,0
+stalker_ps5_3,"PS5, medium, helmet",0.45,0.8,0.15,0.3
+stalker_seva,"SEVA, medium, helmet",0.45,0.7,0.2,0.15
+stalker_skat,"Skat-9, medium, no helmet",0.3,0.75,0.25,0
+stalker_skat_3,"Skat-9, medium, helmet",0.3,0.75,0.25,0.3
+stalker_sts_1,"STS, heavy, no helmet",0.4,0.85,0.15,0
+stalker_sts_3,"STS, heavy, helmet",0.4,0.85,0.15,0.3
+stalker_sunrise,"Sunrise, medium, no helmet",0.5,0.8,0.1,0
+stalker_sunrise_3,"Sunrise, medium, helmet",0.5,0.8,0.1,0.3
+stalker_trenchcoat,"Trenchcoat, light",0.7,0.85,0.011,0
+stalker_trenchcoat_armor,"Armored trenchcoat, medium",0.45,0.8,0.15,0
+stalker_zombied_1,"Zombified, light",0.85,0.9,0.011,0
+stalker_zombied_2,"Zombified, medium",0.6,0.85,0.075,0
+stalker_zombied_3,"Zombified, heavy",0.4,0.8,0.15,0
+stalker_zombied_4,"Zombified stalker, exo",0.25,0.75,0.25,0

@@ -1,0 +1,202 @@
+id,name,hit_power,integrated_silencer,ammo_type
+wpn_9a91,9A-91,0.62,FALSE,ammo_9x39_pab9
+wpn_abakan_n,AN-94 Abakan,0.5,FALSE,ammo_5.45x39_fmj
+wpn_ace52,Galil ACE-52,0.76,FALSE,ammo_7.62x51_fmj
+wpn_adar2_15,ADAR 2-15,0.478,FALSE,ammo_5.56x45_fmj
+wpn_aek,AEK-971,0.5,FALSE,ammo_5.45x39_fmj
+wpn_ak101,AK-101,0.5,FALSE,ammo_5.56x45_fmj
+wpn_ak103,AK-103,0.58,FALSE,ammo_7.62x39_fmj
+wpn_ak104_alfa,AK-104 Alpha,0.57,FALSE,ammo_7.62x39_fmj
+wpn_ak105,AK-105,0.49,FALSE,ammo_5.45x39_fmj
+wpn_ak105_shakal,"AK-105 ""Shakal""",0.5,FALSE,ammo_5.45x39_fmj
+wpn_ak105_swamp,"AK-105 ""Swamp Thing""",0.5,FALSE,ammo_5.45x39_fmj
+wpn_ak12_custom,AK-12 Monolith,0.5,FALSE,ammo_5.45x39_fmj
+wpn_ak12_custom_mono_kit,"AK-12 ""Monolith's Light""",0.51,FALSE,ammo_5.45x39_fmj
+wpn_ak12_m1,AK-12 (2016),0.5,FALSE,ammo_5.45x39_fmj
+wpn_ak5c_bas,AK 5C,0.5,FALSE,ammo_5.56x45_fmj
+wpn_ak5c_isg,AK 5C ISG,0.5,FALSE,ammo_5.56x45_fmj
+wpn_ak74_alt,AK-74N,0.5,FALSE,ammo_5.45x39_fmj
+wpn_ak74_custom,AK-74N (_custom),0.5,FALSE,ammo_5.45x39_fmj
+wpn_ak74_isg,Rifle Dynamics RD-74M ISG,0.53,FALSE,ammo_5.45x39_fmj
+wpn_ak74_n,AK-74,0.5,FALSE,ammo_5.45x39_fmj
+wpn_ak74_pmc,AK-74 PMC,0.49,FALSE,ammo_5.45x39_fmj
+wpn_ak74m_beard,"AK-74M ""Venom""",0.5,FALSE,ammo_5.45x39_fmj
+wpn_ak74m_n,AK-74M,0.5,FALSE,ammo_5.45x39_fmj
+wpn_ak74u_isg,Rifle Dynamics RD-74U ISG,0.5,FALSE,ammo_5.45x39_fmj
+wpn_ak74u_m1_isg,Rifle Dynamics RD-74U ISG Tactic,0.51,FALSE,ammo_5.45x39_fmj
+wpn_ak74u_n1,AKS-74U,0.485,FALSE,ammo_5.45x39_fmj
+wpn_ak74u_tac,AKS-74U Tactical,0.49,FALSE,ammo_5.45x39_fmj
+wpn_akm_alfa,CAA AK-Alfa,0.57,FALSE,ammo_7.62x39_fmj
+wpn_akm_bas,AKM,0.58,FALSE,ammo_7.62x39_fmj
+wpn_akm_isg,Rifle Dynamics RD-47 ISG,0.58,FALSE,ammo_7.62x39_fmj
+wpn_akms_alt,AKMS,0.58,FALSE,ammo_7.62x39_fmj
+wpn_amb17,AMB-17,0.85,FALSE,ammo_9x39_pab9
+wpn_aps,APS,0.45,FALSE,ammo_9x18_fmj
+wpn_aps_bas_apsabigo,APS Stechkin,0.45,FALSE,ammo_9x18_fmj
+wpn_ash12,ShAK-12,0.92,FALSE,ammo_12.7x55_fmj
+wpn_ash12_sup,ShAK-12 (_sup),0.92,FALSE,ammo_12.7x55_fmj
+wpn_aug,Steyr AUG A1,0.51,FALSE,ammo_5.56x45_fmj
+wpn_aug_a3_custom_bas,Steyr AUG A3 Commando,0.51,FALSE,ammo_5.56x45_fmj
+wpn_aug_freedom,Steyr AUG A3 9mm XS,0.47,FALSE,ammo_9x19_fmj
+wpn_aug_merc,Thales F90,0.47,FALSE,ammo_9x19_fmj
+wpn_beretta_camo,Beretta Px4 Storm,0.46,FALSE,ammo_9x19_fmj
+wpn_beretta_modern,Beretta 92F,0.46,FALSE,ammo_9x19_fmj
+wpn_bizon,PP-19 Bizon,0.46,FALSE,ammo_9x18_fmj
+wpn_bm16,TOZ-66 (Sawn-off),0.77,FALSE,ammo_12x70_buck
+wpn_bm16_full,TOZ-66,0.77,FALSE,ammo_12x70_buck
+wpn_colt1911,Colt M1911,0.55,FALSE,ammo_11.43x23_fmj
+wpn_colt1911_camo,Coonan .357,0.6,FALSE,ammo_357_hp_mag
+wpn_colt1911_custom,Strayer Voigt Infinity,0.6,FALSE,ammo_357_hp_mag
+wpn_colt1911_duty,"Colt M1911 ""Aries""",0.6,FALSE,ammo_357_hp_mag
+wpn_colt1911_new,Colt M1911,0.6,FALSE,ammo_357_hp_mag
+wpn_desert_eagle,Desert Eagle,0.6,FALSE,ammo_357_hp_mag
+wpn_desert_eagle_nimble,"Desert Eagle ""Steppe Eagle""",0.6,FALSE,ammo_357_hp_mag
+wpn_dvl10,DVL-10 Urbana,1,FALSE,ammo_7.62x51_fmj
+wpn_dvl10_m1,DVL-10 Saboteur,0.85,TRUE,ammo_338_federal
+wpn_fal_aus,"DS ARMS SA-58 AUS ""Austrian Style""",0.76,FALSE,ammo_7.62x51_fmj
+wpn_fal_aus_kit_aus_tri,SA-58 AUS Scout,0.76,FALSE,ammo_7.62x51_fmj
+wpn_fal_aus_kit_fal_leup,SA-58 AUS Marauder,0.76,FALSE,ammo_7.62x51_fmj
+wpn_fal_aus_kit_sa5x_spec,SA-58 AUS Defender,0.76,FALSE,ammo_7.62x51_fmj
+wpn_fal_sa58_osw,DS ARMS SA-58,0.76,FALSE,ammo_7.62x51_fmj
+wpn_fn2000_nimble,"FN F2000 ""Competitor""",0.51,FALSE,ammo_5.56x45_fmj
+wpn_fn57,FN Five-seveN,0.45,FALSE,ammo_5.7x28_ss190
+wpn_fnp45,FNP-45,0.55,FALSE,ammo_11.43x23_fmj
+wpn_fnx45,FNX-45,0.55,FALSE,ammo_11.43x23_fmj
+wpn_fnx45_alt,FNX-45 (_alt),0.55,FALSE,ammo_11.43x23_fmj
+wpn_fnx45_custom,FNX-45 (_custom),0.55,FALSE,ammo_11.43x23_fmj
+wpn_fort,Fort-12,0.45,FALSE,ammo_9x18_fmj
+wpn_g36ka4_rwap,G36K,0.5,FALSE,ammo_5.56x45_fmj
+wpn_g36v_rwap,G36,0.5,FALSE,ammo_5.56x45_fmj
+wpn_g36nimble_rwap,"G36C ""Merc""",0.5,FALSE,ammo_5.56x45_fmj
+wpn_gauss,Gauss Rifle,1,FALSE,ammo_gauss
+wpn_glock,Glock 19,0.46,FALSE,ammo_9x19_fmj
+wpn_glock_custom,HS2000,0.46,FALSE,ammo_9x19_fmj
+wpn_glock_modern,"Glock 19 ""Hornet""",0.46,FALSE,ammo_9x19_fmj
+wpn_groza,OC-14 Groza,0.62,FALSE,ammo_9x39_pab9
+wpn_groza_nimble,"OTs-14 Groza ""Storm""",0.58,FALSE,ammo_5.45x39_fmj
+wpn_gsh18,Gsh-18,0.46,FALSE,ammo_9x19_fmj
+wpn_gsh18_custom,Gsh-18 (_custom),0.46,FALSE,ammo_9x19_fmj
+wpn_howa20,Howa Type 20,0.53,FALSE,ammo_5.56x45_fmj
+wpn_hpsa,Browning Hi-Power,0.46,FALSE,ammo_9x19_fmj
+wpn_ithacam37_mag,Ithaca M37 Defense,0.79,FALSE,ammo_12x70_buck
+wpn_ithacam37_stakeout,Ithaca M37 Stakeout,0.79,FALSE,ammo_12x70_buck
+wpn_ithacam37_trench,Ithaca M37 Trenchgun,0.79,FALSE,ammo_12x70_buck
+wpn_k98,Karabiner 98k,1.1,FALSE,ammo_7.92x33_fmj
+wpn_k98_mod,Mauser 98k Forester mk.1,1.15,FALSE,ammo_7.92x33_fmj
+wpn_kiparis,OTs-02 Kiparis,0.46,FALSE,ammo_9x18_fmj
+wpn_korth,Korth Custom 4,0.66,FALSE,ammo_11.43x23_fmj
+wpn_korth_custom,Korth Custom 6,0.68,FALSE,ammo_11.43x23_fmj
+wpn_kriss_vector,KRISS Vector,0.55,FALSE,ammo_11.43x23_fmj
+wpn_ks23,KS-23,0.5,FALSE,ammo_23x75_shrapnel
+wpn_ks23_23_up,KS-23 Shortie,0.48,FALSE,ammo_23x75_shrapnel
+wpn_ks23_kaban,KS-23M Drozd,0.48,FALSE,ammo_23x75_shrapnel
+wpn_ks23_kaban_kab_up,"KS-23M Drozd ""Boar""",0.5,FALSE,ammo_23x75_shrapnel
+wpn_l85_m2,L85A2,0.51,FALSE,ammo_5.56x45_fmj
+wpn_l96a1m,AWSM,1,FALSE,ammo_magnum_300
+wpn_m249,M249 SAW,0.51,FALSE,ammo_5.56x45_fmj
+wpn_m4_butcher,"M4A1 ""Butcher""",0.496,FALSE,ammo_5.56x45_fmj
+wpn_m4_ru556,Ruger SR-556,0.52,FALSE,ammo_5.56x45_fmj
+wpn_m4_tac,"M4A1 ""Protector""",0.49,FALSE,ammo_5.56x45_fmj
+wpn_m4a1_siber,M4A1,0.498,FALSE,ammo_5.56x45_fmj
+wpn_mosin,Mosin-Nagant,0.9,FALSE,ammo_7.62x54_7h1
+wpn_mossberg590,Mossberg 590A1,0.79,FALSE,ammo_12x70_buck
+wpn_mp133,MP-133,0.79,FALSE,ammo_12x70_buck
+wpn_mp153,MP-153,0.8,FALSE,ammo_12x70_buck
+wpn_mp153_m1,"MP-153 ""Carabineer""",0.8,FALSE,ammo_12x70_buck
+wpn_mp412,MP-412 Rex,0.6,FALSE,ammo_357_hp_mag
+wpn_mp443,MP-443 Grach,0.46,FALSE,ammo_9x19_fmj
+wpn_mp5,MP5A3,0.47,FALSE,ammo_9x19_fmj
+wpn_mp5_custom,MP5A3 (_custom),0.47,FALSE,ammo_9x19_fmj
+wpn_mp5_nimble,"MP5A3 ""Frasier""",0.56,FALSE,ammo_11.43x23_fmj
+wpn_mp5sd,MP5SD6,0.56,TRUE,ammo_11.43x23_fmj
+wpn_mp5sd_custom,MP5SD6 (_custom),0.56,TRUE,ammo_11.43x23_fmj
+wpn_mp7,MP7,0.47,FALSE,ammo_9x19_fmj
+wpn_oc33,OTs-33 Pernach,0.45,FALSE,ammo_9x18_fmj
+wpn_p90_gs,FN P90 (p90_gs),0.46,FALSE,ammo_5.7x28_ss190
+wpn_p90gamma,FN P90 (p90gamma),0.46,FALSE,ammo_5.7x28_ss190
+wpn_pb,PB,0.45,FALSE,ammo_9x18_fmj
+wpn_pb_custom,PB (_custom),0.45,FALSE,ammo_9x18_fmj
+wpn_pkm_siber,PKM,0.77,FALSE,ammo_pkm_100
+wpn_pkm_zenit_siber,"PKM ""Zenit""",0.77,FALSE,ammo_pkm_100
+wpn_pkp_siber,PKP Pecheneg,0.77,FALSE,ammo_pkm_100
+wpn_pl15_tan,Lebedev PL-15,0.46,FALSE,ammo_9x19_fmj
+wpn_pl15_tan_pl15_scolaz,"Lebedev PL-15 ""Bearcat""",0.46,FALSE,ammo_9x19_fmj
+wpn_pm,Makarov PM,0.45,FALSE,ammo_9x18_fmj
+wpn_pm_custom,Makarov PM (_custom),0.45,FALSE,ammo_9x18_fmj
+wpn_pmm,Makarov PMM,0.45,FALSE,ammo_9x18_fmj
+wpn_pp2000,PP-2000,0.47,FALSE,ammo_9x19_fmj
+wpn_ppsh41,PPSh-41,0.46,FALSE,ammo_7.62x25_p
+wpn_protecta,Armsel Protecta,0.78,FALSE,ammo_12x70_buck
+wpn_protecta_aim,Armsel Protecta Custom,0.78,FALSE,ammo_12x70_buck
+wpn_protecta_custom,Armsel Protecta (_custom),0.78,FALSE,ammo_12x70_buck
+wpn_protecta_nimble,"Armsel Protecta ""Tank""",0.78,FALSE,ammo_12x70_buck
+wpn_raptr,RAPTR,0.8,FALSE,ammo_12x70_buck
+wpn_remington700,Remington 700,1.3,FALSE,ammo_7.62x51_fmj
+wpn_remington700_archangel,"Remington 700 ""Archangel""",1.3,FALSE,ammo_7.62x51_fmj
+wpn_remington700_lapua700,"Remington 700 ""Deer Hunter""",1.5,FALSE,ammo_magnum_300
+wpn_remington700_magpul_pro,"Remington 700 ""Magpul PRO""",1.3,FALSE,ammo_7.62x51_fmj
+wpn_remington700_mod_x_gen3,"Remington 700 ""MOD X Gen.3""",1.3,FALSE,ammo_7.62x51_fmj
+wpn_remington870,Remington 870,0.79,FALSE,ammo_12x70_buck
+wpn_rpd,RPD,0.59,FALSE,ammo_7.62x39_fmj
+wpn_rpk,RPK,0.585,FALSE,ammo_7.62x39_fmj
+wpn_rpk74_16,RPK-16 LMG,0.545,FALSE,ammo_5.45x39_fmj
+wpn_saiga12s_isg,KS-12,0.8,FALSE,ammo_12x70_buck
+wpn_saiga12s_m1,"Saiga-12 ""Nerd""",0.788,FALSE,ammo_12x70_buck
+wpn_saiga12s_m2,"Saiga-12 ""Merc""",0.788,FALSE,ammo_12x70_buck
+wpn_scar_siber,FN SCAR-H,0.75,FALSE,ammo_7.62x51_fmj
+wpn_scar_siber_m1,"FN SCAR-H ""Tactical""",0.75,FALSE,ammo_7.62x51_fmj
+wpn_scar_siber_m2,"FN SCAR-H ""Expert Operator""",0.75,FALSE,ammo_7.62x51_fmj
+wpn_sig220_n,SIG P220,0.55,FALSE,ammo_11.43x23_fmj
+wpn_sig220_n_u2p2g0r,"SIG P220 ""Stalker""",0.55,FALSE,ammo_9x19_fmj
+wpn_sig220_n_upg220,"SIG P220 ""XXX""",0.55,FALSE,ammo_11.43x23_fmj
+wpn_sig226,SIG P226R,0.55,FALSE,ammo_9x19_fmj
+wpn_sig226_226sig_kit,SIG P226R Custom,0.55,FALSE,ammo_9x19_fmj
+wpn_sig550,SIG SG 550,0.5,FALSE,ammo_5.56x45_fmj
+wpn_sig550_custom,SIG SG 550 (_custom),0.5,FALSE,ammo_5.56x45_fmj
+wpn_sig550_luckygun,SIG SG 550-1 Arrow,0.5,FALSE,ammo_5.56x45_fmj
+wpn_sig552,SIG SG 552 Commando,0.48,FALSE,ammo_5.56x45_fmj
+wpn_sks_b,SKS,0.58,FALSE,ammo_7.62x39_fmj
+wpn_sks_molot,SKS Molot,0.585,FALSE,ammo_7.62x39_fmj
+wpn_sks_tac,SKS Tactical,0.585,FALSE,ammo_7.62x39_fmj
+wpn_spas12,SPAS-12,0.79,FALSE,ammo_12x70_buck
+wpn_spas12_nimble,SPAS-12 (_nimble),0.79,FALSE,ammo_12x70_buck
+wpn_sr1m,Serdyukov SR1M Gyurza,0.49,FALSE,ammo_9x21_sp10
+wpn_sr1m_gurza_up,Serdyukov SR1M Gyurza Custom,0.49,FALSE,ammo_9x21_sp10
+wpn_sr2_m1,SR-2M Veresk,0.49,FALSE,ammo_9x21_sp10
+wpn_sr2_veresk,SR-25,0.49,FALSE,ammo_9x21_sp10
+wpn_sr2_veresk_sr2_upkit,"SR-2M Veresk ""Tactical""",0.49,FALSE,ammo_9x21_sp10
+wpn_sr25,SR-2M Veresk (_m1),1,FALSE,ammo_7.62x51_fmj
+wpn_steyr_scout_big,Steyr Scout 7.62,1.7,FALSE,ammo_7.62x51_fmj
+wpn_sv98,SV98,1.1,FALSE,ammo_7.62x54_7h1
+wpn_svd_m1,SVD,1.1,FALSE,ammo_7.62x54_7h1
+wpn_svds,SVDS,1.1,FALSE,ammo_7.62x54_7h1
+wpn_svds_pmc,"SVDS ""Retribution""",1.1,FALSE,ammo_7.62x54_7h1
+wpn_svu,OTs-03 SVU,1.1,FALSE,ammo_7.62x54_7h1
+wpn_svu_nimble,OTs-03A SVU-A,0.8,FALSE,ammo_7.62x54_7h1
+wpn_thompson_1921,Thompson Model 1921,0.46,FALSE,ammo_11.43x23_fmj
+wpn_thompson_m1a1,Thompson M1A1,0.46,FALSE,ammo_11.43x23_fmj
+wpn_toz106,TOZ-106,0.8,FALSE,ammo_20x70_buck
+wpn_toz106_m1,TOZ-106 (_m1),0.8,FALSE,ammo_20x70_buck
+wpn_toz34,TOZ-34,0.8,FALSE,ammo_12x70_buck
+wpn_toz34_decor,TOZ-34 (_decor),0.53,FALSE,ammo_23x75_shrapnel
+wpn_toz34_mark4_23,"TOZ-34 ""Chimera Hunter""",0.53,FALSE,ammo_23x75_shrapnel
+wpn_toz34_obrez,TOZ-34 (Sawn-off),0.77,FALSE,ammo_23x75_shrapnel
+wpn_tt33,TT-33,0.45,FALSE,ammo_7.62x25_p
+wpn_tt33_modern,TT-33 (_modern),0.45,FALSE,ammo_7.62x25_p
+wpn_ump45_custom,UMP45,0.56,FALSE,ammo_11.43x23_fmj
+wpn_usp_match,USP Match,0.55,FALSE,ammo_9x19_fmj
+wpn_usp_nimble,"USP Match ""Wolfhound""",0.47,FALSE,ammo_9x19_fmj
+wpn_val,AS Val,0.62,TRUE,ammo_9x39_pab9
+wpn_vihr,SR-3M Vikhr,0.62,FALSE,ammo_9x39_pab9
+wpn_vintorez_isg,RD-939,0.88,TRUE,ammo_9x39_pab9
+wpn_vintorez_n1,VSS Vintorez,0.62,FALSE,ammo_9x39_pab9
+wpn_vityaz,PP-19 Vityaz,0.47,FALSE,ammo_9x19_fmj
+wpn_vssk,VSSK Vykhlop,1.2,TRUE,ammo_12.7x55_fmj
+wpn_vz61,Skorpion vz.68,0.46,FALSE,ammo_9x19_fmj
+wpn_vz61_alt,Skorpion vz.68 (_alt),0.46,FALSE,ammo_9x18_fmj
+wpn_walther,Walther P99,0.46,FALSE,ammo_9x19_fmj
+wpn_walther_custom,Walther P99 (_custom),0.46,FALSE,ammo_9x19_fmj
+wpn_walther_p99_mod9,Walther P99 Custom,0.46,FALSE,ammo_9x19_fmj
+wpn_wincheaster1300,TOZ-194,0.79,FALSE,ammo_12x70_buck
+wpn_winchester1873,Winchester Model 1873,0.8,FALSE,ammo_357_hp_mag
+wpn_xm4,XM177E2,0.498,FALSE,ammo_5.56x45_fmj
