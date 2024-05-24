@@ -2,7 +2,7 @@
 from dash import Dash, html, dcc, callback, Output, Input, State, ctx, no_update
 import dash_bootstrap_components as dbc
 from dash.exceptions import PreventUpdate
-import plotly.express as px
+#import plotly.express as px
 import pandas as pd
 import re, math
 
