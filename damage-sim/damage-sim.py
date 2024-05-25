@@ -403,6 +403,7 @@ input_field_weapons = html.Div([
         options=[{'label': x[1], 'value': x[0]} for x in zip(weapons_df.index, weapons_df['name'])]
     ),
     
+    dbc.Label('Integrally silenced', id='integral_silencer', style={'display':'none'}),
     dbc.Switch(id='silencer', label='Silenced', value=False),
     dbc.Label(id='barrel-cond-label', children='Barrel condition:'),
     dcc.Slider(0, 100, 1, #min, max, step
@@ -616,6 +617,20 @@ def update_info_strings(barrel):
         int(barrel)
     )
 
+#Disable silencer toggle if weapon is integrally silenced
+@callback(
+    Output('silencer', 'disabled'),
+    Output('integral_silencer', 'style'),
+    Input('weapons-dropdown', 'value')
+)
+
+def disable_silencer_toggle(weapon):
+    silenced = is_wpn_silenced(weapon, False)
+    if silenced == True:
+        return True, {'display':'inherit'}
+    else:
+        return False,{'display':'none'}
+
 #Limit ammo to type used by weapon
 # Default output: [{'label': x[1], 'value': x[0]} for x in zip(ammo_df.index, ammo_df['name'])]
 @callback(
@@ -791,20 +806,23 @@ def update_output(submit, weapon, bullet, target, hitzone, faction, dist, barrel
     if is_mutant == True: #if chosen target is mutant:
         outcome = anomaly_engine_pen(mutant_hit(input_array), bullet, target, hitzone)
         output = [
-            'Estimated damage: {}'.format(round(outcome[0], 8))
+            'Estimated damage: {}'.format(round(outcome[0], 6))
         ]
         if outcome[1] == True:
             output.extend([html.Br(), 'Shot penetrated armor!'])
     elif is_mutant == False:
         outcome = stalker_hit(input_array)
         output = [
-            'Estimated damage: {}'.format(round(outcome[2], 8))
+            'Estimated damage: {}'.format(round(outcome[2], 6))
         ]
         if outcome[0] == False: #shot did not penetrate armor
-            output.extend([
-                html.Br(), 'Shot did not penetrate armor. New armor value: {}'.format(round(outcome[1], 2)),
-                html.Br(),
-                'It would take {} shots to break armor.'.format(shots_to_pen(input_array))
+            output == (['Shot did not penetrate armor. New armor value: {}'.format(round(outcome[1], 2)),
+                html.Br(), 'Estimated average damage: {}, minimum possible damage: {}, maximum possible damage: {}.'.format(
+                    round(outcome[2], 6),
+                    round(outcome[3], 6),
+                    round(outcome[4], 6)
+                ),
+                html.Br(), 'It would take {} shots to break armor.'.format(shots_to_pen(input_array))
             ])
         elif outcome [0] == True:
             output.extend([html.Br(), 'Shot penetrated armor!'])
