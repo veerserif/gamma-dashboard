@@ -197,7 +197,7 @@ def get_stalkerhit_ap(input_array):
     faction_res = npc_faction_res(input_dict['faction'])
     
     wpn_hit_power = get_wpn_hit_power(input_dict['weapon'])
-    air_res_function = (1 + input_dict['dist'] / 200 * (ammo['air_res'] * 0.5 / (1 - ammo['air_res'] + 1 )))
+    air_res_function = (1 + input_dict['dist'] / 200 * (ammo['air_res'] * 0.5 / (1 - ammo['air_res'] + 0.1 )))
     
     #needed for headshot AP
     buckshot = ["ammo_12x70_buck", "ammo_20x70_buck", "ammo_23x75_shrapnel"]
@@ -263,13 +263,12 @@ def mutant_hit(input_array):
     gbo_dmg = raw_dmg / ( 1 + input_dict['dist'] / 200 * ( air_res * 0.5 / ( 1 - air_res + 0.1 ))) * mutant_mult * ammo_mult * spec_monster_mult * bone_mult * cqc_mult * barrel_mult * difficulty
     #bullshit zombie modifier
     gbo_dmg = gbo_dmg * mutant['zombie_modifier']
-    return gbo_dmg
+    return gbo_dmg #, input_dict['bullet'], input_dict['target'], input_dict['hitzone']
 
 def stalker_armor_calc(ap, dmg, bone_armor, hit_fraction, hp_no_penetration_penalty):
     loss_increment = ap * 0.6
     new_bone_armor = bone_armor - loss_increment
     did_shot_pen = False
-    
     if ap < bone_armor:
         if ap > new_bone_armor:
             dmg = dmg * hit_fraction
@@ -300,7 +299,7 @@ def shots_to_pen(input_array): #how many shots needed to destroy armor at hitzon
     return shots_to_pen
 
 
-def stalker_hit(input_array):
+def stalker_hit(input_array, bone_armor = None):
     # Array parsing
     keys = ('weapon', 'bullet', 'target', 'hitzone', 'faction', 'dist', 'barrel', 'game_difficulty', 'silencer')
     input_dict = dict(zip(keys, input_array))
@@ -317,11 +316,12 @@ def stalker_hit(input_array):
     target_d = get_npc_stats(input_dict['target'])
     ap_scale = target_d['ap_scale']
     hit_fraction = target_d['hit_fraction']
-    bone_armor = get_armor(input_dict['target'], input_dict['hitzone'])
+    if bone_armor == None: #allows passing of a new armor value
+        bone_armor = get_armor(input_dict['target'], input_dict['hitzone'])
     faction_res = npc_faction_res(input_dict['faction'])
     
     wpn_hit_power = get_wpn_hit_power(input_dict['weapon'])
-    air_res_function = (1 + input_dict['dist'] / 200 * (ammo['air_res'] * 0.5 / (1 - ammo['air_res'] + 1 )))
+    air_res_function = (1 + input_dict['dist'] / 200 * (ammo['air_res'] * 0.5 / (1 - ammo['air_res'] + 0.1 )))
     
     local_ap = get_stalkerhit_ap(input_array)
     
@@ -359,7 +359,29 @@ def anomaly_engine_pen(gbo_dmg, bullet, target, hitzone): #how the engine handle
     else:
         is_pen = False
     #print('hit_power: ' + str(d_hit_power) + ', hit_scale: ' + str(hit_scale)) #temporary for debugging
-    return final_dmg, is_pen
+    return is_pen, final_dmg
+
+def time_to_kill(input_array):
+    # Array parsing
+    keys = ('weapon', 'bullet', 'target', 'hitzone', 'faction', 'dist', 'barrel', 'game_difficulty', 'silencer')
+    input_d = dict(zip(keys, input_array))
+    ttk = 1 #integer, shots to kill, always at least 1
+    min_ttk = 1
+    max_ttk = 1
+
+    if input_d['target'].find('stalker_') != -1: #if target is stalker
+        #partially recreate stalker armor calc
+        stp = shots_to_pen(input_array)
+        hit = stalker_hit(input_array)
+        ttk = stp + math.ceil((1.0 - (stp * hit[2])) / stalker_hit(input_array, 0.0)[2])
+        if len(hit) > 3: #if random damage is in play
+            #print('STP: ' + str(stp) + ', ' + str(hit))
+            min_ttk = stp + math.ceil((1.0 - (stp * hit[3])) / stalker_hit(input_array, 0.0)[2])
+            max_ttk = stp  + math.ceil((1.0 - (stp * hit[4])) / stalker_hit(input_array, 0.0)[2])
+    elif input_d['target'].find('m_') != -1: #if target is mutant
+        damage = anomaly_engine_pen(mutant_hit(input_array), input_d['bullet'], input_d['target'], input_d['hitzone'])[1]
+        ttk = math.ceil(1/damage)
+    return ttk, min_ttk, max_ttk
 
 
 # Initialize the app
@@ -465,6 +487,10 @@ input_field_difficulty = html.Div([
             {'label':'Master (hidden)', 'value': 'master'}
             ], value='hard', inline=True
     )])
+
+sim_explanation = dcc.Markdown('''
+
+''')
 
 #design output cards here
 
@@ -576,9 +602,7 @@ app.layout = [
 
     dbc.Row([dbc.Col([
         html.H3('Boring Explanations For Big Nerds'),
-        dcc.Markdown('''
-    A whole bunch of text describing how the whole thing works.
-                    ''')
+        sim_explanation
     ])], style={'padding-top':'3em'})
 
     ])
@@ -621,7 +645,8 @@ def update_info_strings(barrel):
 @callback(
     Output('silencer', 'disabled'),
     Output('integral_silencer', 'style'),
-    Input('weapons-dropdown', 'value')
+    Input('weapons-dropdown', 'value'),
+    prevent_initial_call = True
 )
 
 def disable_silencer_toggle(weapon):
@@ -703,7 +728,9 @@ def missing_inputs(submit, weapon, bullet, target, hitzone, faction, dist, barre
 )
 
 def output_cards(submit, weapon, bullet, target, hitzone, faction, dist, barrel, game_difficulty, silencer):
-    wpn_desc = ['Weapon base damage: ' + str(weapons_df.loc[weapon]['hit_power']), html.Br()]
+    if None in [weapon, bullet, target, hitzone, faction, dist, barrel, game_difficulty, silencer]: # no update if fields are empty
+        raise PreventUpdate
+    wpn_desc = ['Weapon base damage: {}'.format(weapons_df.loc[weapon]['hit_power']), html.Br()]
     ammo = get_ammo_stats(bullet)
     npc_dict = {}
     barrel_mult = barrel_cond(barrel/100)
@@ -719,15 +746,15 @@ def output_cards(submit, weapon, bullet, target, hitzone, faction, dist, barrel,
 
     ammo_desc = ['Ammo damage multiplier: x' + str(ammo['k_hit']), 
                  html.Br(),
-                 'Ammo AP multiplier: x' + str(ammo['k_ap']*10)]
-    if target.find('stalker_') == -1: #if not stalker
-        ammo_desc.extend([html.Br(),'GBO per-ammo damage multiplier: x', str(ammo['ammo_mult_stalker'])])
+                 'Ammo AP value: ' + str(ammo['k_ap']*10)]
+    if target.find('stalker_') != -1: #if is stalker
+        ammo_desc.extend([html.Br(),'GBO per-ammo damage multiplier: x{}'.format(ammo['ammo_mult_stalker'])])
     elif target.find('m_gigant') != -1: #if is pseudogiant
-        ammo_desc.extend([html.Br(),'GBO per-ammo damage multiplier: x', str(ammo['gigant_ammo_mult'])])
+        ammo_desc.extend([html.Br(),'GBO per-ammo damage multiplier: x{}'.format(ammo['gigant_ammo_mult'])])
     elif target.find('m_') != -1: #if is some other mutant
-        ammo_desc.extend([html.Br(),'GBO per-ammo damage multiplier: x', str(ammo['ammo_mult_mutant'])])
+        ammo_desc.extend([html.Br(),'GBO per-ammo damage multiplier: x{}'.format(ammo['ammo_mult_mutant'])])
     if ammo['pellets'] > 1: #more than one pellet i.e. is buckshot
-        ammo_desc.extend([html.Br(),'Buckshot-type round, has ', str(ammo['pellets']), ' pellets per shot. This calculation assumes all pellets hit.'])
+        ammo_desc.extend([html.Br(),'Buckshot-type round, has {} pellets per shot. This calculation assumes all pellets hit.'.format(ammo['pellets'])])
     
     target_desc = []
     if target.find('stalker_') != -1: #if target is stalker
@@ -790,42 +817,56 @@ def update_output(submit, weapon, bullet, target, hitzone, faction, dist, barrel
     if None in [weapon, bullet, target, hitzone, faction, dist, barrel, game_difficulty, silencer]:
         raise PreventUpdate
     is_mutant = False
-    damage = 0.0
     outcome=[]
     output = []
     #construct array for input
     input_array = [weapon, bullet, target, hitzone, faction, dist, barrel/100, game_difficulty, silencer]
     if target.find('stalker') == -1: #if not a stalker i.e. a mutant
-        input_array[4] == 'other' #set faction to "other"
+        input_array[4] = 'other' #set faction to "other"
         is_mutant = True
     elif target.find('stalker') != -1: #if target IS stalker
         is_mutant = False
     else: #nothing in target
         raise PreventUpdate
     
+    ttk = time_to_kill(input_array)
     if is_mutant == True: #if chosen target is mutant:
         outcome = anomaly_engine_pen(mutant_hit(input_array), bullet, target, hitzone)
         output = [
-            'Estimated damage: {}'.format(round(outcome[0], 6))
+            'Estimated damage: {}   Shots to kill: {}'.format(round(outcome[1], 6), ttk[0])
         ]
-        if outcome[1] == True:
+        if outcome[0] == True:
             output.extend([html.Br(), 'Shot penetrated armor!'])
     elif is_mutant == False:
         outcome = stalker_hit(input_array)
-        output = [
-            'Estimated damage: {}'.format(round(outcome[2], 6))
-        ]
-        if outcome[0] == False: #shot did not penetrate armor
-            output == (['Shot did not penetrate armor. New armor value: {}'.format(round(outcome[1], 2)),
-                html.Br(), 'Estimated average damage: {}, minimum possible damage: {}, maximum possible damage: {}.'.format(
+        #print(outcome) #debugging
+        if outcome [0] == True: #shot penetrates armor
+            output = [
+            'Estimated damage: {}, shots to kill: {}'.format(round(outcome[2], 6), ttk[0]),
+            html.Br(),
+            'Shot penetrated armor!'
+            ]
+        elif outcome[0] == False: #shot did not penetrate armor
+            if len(outcome) > 3: #if we get to the random damage part
+                output.extend([
+                'Estimated average damage: {}, minimum possible damage: {}, maximum possible damage: {}.'.format(
                     round(outcome[2], 6),
                     round(outcome[3], 6),
                     round(outcome[4], 6)
                 ),
+                html.Br(), 'Average shots to kill: {}, min. shots: {}, max. shots: {}'.format(
+                    ttk[0], 
+                    ttk[1],
+                    ttk[2]),
+                html.Br(), 'First shot did not penetrate armor. New armor value: {}'.format(round(outcome[1], 2)),
                 html.Br(), 'It would take {} shots to break armor.'.format(shots_to_pen(input_array))
             ])
-        elif outcome [0] == True:
-            output.extend([html.Br(), 'Shot penetrated armor!'])
+            else: #no rand damage
+                output.extend([
+                    'Estimated damage: {}, shots to kill: {}'.format(round(outcome[2], 6), ttk[0]),
+                    html.Br(), 'First shot did not penetrate armor. New armor value: {}'.format(round(outcome[1], 2)),
+                    html.Br(), 'It would take {} shots to break armor.'.format(shots_to_pen(input_array))
+                ])
     return output
 
 # Run the app
