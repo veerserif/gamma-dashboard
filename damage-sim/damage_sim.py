@@ -725,6 +725,8 @@ def limit_ammo_dropdown(weapon, limiter):
     allowable_ammo = []
     if weapon:
         allowable_ammo = get_ammo_type(weapon)
+        if "ammo_12x70_buck" in allowable_ammo: #hand code exception for 12ga because lol fucking typo
+            allowable_ammo = ["ammo_12x70_buck", "ammo_12x76_zhekan", "ammo_12x76_dart"]
         if limiter == True:
             return [{'label': x[1], 'value': x[0]} for x in zip(allowable_ammo, ammo_df.loc[allowable_ammo]['name'])]
         elif limiter == False:
