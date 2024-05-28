@@ -404,7 +404,7 @@ title_section = dbc.NavbarSimple( #header
 intro_section = html.Div([
     dcc.Markdown('''
     This simulates the effect of taking **one shot** at a chosen target, at a specified distance, using a given weapon and ammo combo.
-    Developed by veerserif. Last updated 2024-05-24.
+    Developed by veerserif. Last updated 2024-05-28.
     ''')
 ])
 
@@ -489,7 +489,64 @@ input_field_difficulty = html.Div([
     )])
 
 sim_explanation = dcc.Markdown('''
+    ##### What's the point of this?
+    Sating my curiosity, practicing Python/Pandas/Dash, providing an easy tool to play around with damage calculations. Source csvs are available [on Github](https://github.com/veerserif/gamma-dashboard/tree/main/damage-sim/src).
+                               
+    #### Sources
+    Unless otherwise stated, assume all files are the version that wins all overwrites in a vanilla GAMMA installation.
+    - **Ammunition**: All stats manually obtained by reading `weapon_ammo.ltx` (not making that mistake again)
+    - **Weapons**: Mainly scraped from the various weapon config files, as well as some DLTX overwrites for specific weapons (the Winchester, the Steyr, the FN2000). 
+        These were then cross-checked against a partly generated, partly manual list of all obtainable weapons in GAMMA. The resulting weapons list contains all weapons can be found normally (through NPC drops, Nimble trades, or kit upgrades).
+    - **Mutants**: All stats manually obtained from `gamedata/configs/creatures` mutant `.ltx` files. The relevant stats here are the same as in vanilla Anomaly.
+    - **Stalker armor profiles**: This is a *curated selection* (only the most common armor profiles in use) of armor profiles that are used by GAMMA/Dux's Innumerable Character Kit. These were obtaned by checking `damages.ltx`, `model_captures`, and NPC config ltx files. I then counted the most common profiles and renamed/merged a curated list to serve as the source database for NPC armor profiles.
+    
+    And yes - NPC profiles are provided both by armor type (e.g. Sunrise, LCS, Skat-9) *and* by faction (Monolith being the most common). Faction type has nothing to do with the NPC's actual faction - there are Eco, Freedom, Merc, Monolith models that all use the same "Monolith armor profile".
+    
+    Damage formulae, some additional multipliers, and hitzone info all came from `grok_bo.script`. The functions here mirror those provided by `grok_bo.script` as well as the [Anomaly damage calculation](https://pastebin.com/raw/spv4YzaZ) (mutant hits only), recreated in Python.
+    Other information about ammo and weapon configs was provided by this [ammo editing tutorial](https://discord.com/channels/912320241713958912/967696698065436682/1154289177693802546) by Momopate, and the [Anomaly modding handbook](https://igigog.github.io/anomaly-modding-book/configs/items/weapons/w_(weapon).ltx.html) for weapon configs.
+                                                
+    #### Assumptions in the simulator
+    Assume that **every NPC in the game** has a health value of **1.0**. This is why damage values are rarely ever over 1. Also, there are additional hard-coded multipliers present, most notably in the calculations for AP. These are not reflected in output - read the source script file to learn more.
 
+    - "Hitzone": what every other game calls a hitbox
+    - Weapon base value: `hit_power` in the config, the base damage of the weapon. Multiplied by the bullet damage modifier, `k_hit`, for final damage.
+    - AP value: AP is a property of the bullet (`k_ap`), which goes through a series of very fucking complicated calculations if you shoot a stalker, and basically no calculations if you shoot a mutant. Damage that does not penetrate a target's armor deals a reduced amount of damage (specifically, it deals `damage * non-penetrating shot damage cap`, or `(k_hit * hit_power) * hit_scale`).
+    - Yes, there's air resistance which dictates damage fall-off over distance. No, I forgot to put in max range in this calculator, look *that* one up in a weapon stats spreadsheet coming soon.
+    - Yes really, NPC faction influences AP/damage resistance
+    - Yeah pseudogiants ARE bullshit but remember, that's because every NPC has the same health value
+    - Yes there's a per-ammo damage mult in GBO
+    - Only "normal" mutant variants are available (with the exception of the black chimera)
+    - All hitzones are abstracted and grouped, especially for mutants.
+    For mutants, the "head" means *just* the head hitbox (excluding neck), torso is the average of `spine`, `spine01` and `spine02`, rear is the average of `pelvis` and `tail`, and limbs are all arm and leg hitzones. `other` reflects the default values.
+    For stalkers, for the sake of brevity, individual hitzone values have been abstracted down to those presented in the simulator. In `grok_bo.script` you'll see that, for example, upper arms take different amounts of damage to lower arms.
+    - Only "normal" bullet types are considered (no bad ammo in GAMMA)
+    - Guns with the same name have had `(_suffix)` added by me - for example, `wpn_mp5` and `wpn_mp5_custom` are both called "MP5A3" in the game. Most of the time this doesn't matter for damage calculations since they have the same/similar stats.
+    - This simulator **ignores surrendering/wounded state**, which would significantly reduce the TTK/increase damage dealt to stalkers. Stalkers in the wounded/surrendering state take double damage.
+                                                      
+    #### Imaginary Q&A
+    *How do I find out the armor profile of an NPC in the game?*
+
+    Smart way: edit `grok_bo.script` to write this information to console. Around line 690, where the function is getting the target's bone profile, add:
+    ```lua
+    printf("NPC armor section: %s",npc_armor_section)
+    ```
+    Save, run the game, shoot an NPC, then check the console - it should be in the shot report, from the *first time* you shoot a given NPC.
+                               
+    *I shot* something *in the game, and got different numbers!*
+                               
+    When in doubt, trust the game and not this tool. For stalkers, since the wounded/surrendering state is ignored, expect to kill stalkers *faster* in-game than this tool would suggest.
+                               
+    *Why does the ammo limiter only work if I toggle it on and off again?*
+                               
+    Because it's a fancy disguised checkbox, that's just how it works.
+                               
+    *Why does the ammo limiter not work on the AK-105 "Swamp Thing"?*
+                               
+    The caliber swap info is not stored in the weapon configs, only the upgrade configs, and I wasn't going to spend an extra week reading those. Just turn the limiter off and pick 5.56mm.
+                               
+    *Why are zombie/fracture values so scuffed?*
+    
+    I wish I knew.
 ''')
 
 #design output cards here
