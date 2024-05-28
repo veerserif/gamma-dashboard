@@ -835,7 +835,7 @@ def output_cards(submit, weapon, bullet, target, hitzone, faction, dist, barrel,
         if npc_dict['crit_zone'] != 'none':
             target_desc.extend([html.Br(), 'This mutant takes {:.0%} extra critical damage if you shoot it in the head.'.format(npc_dict['crit_hit'])])
         if npc_dict['zombie_modifier'] < 1:
-            target_desc.extend([html.Br(), 'This mutant has a hardcoded 10\% damage reduction, since it is considered a zombie.'])
+            target_desc.extend([html.Br(), 'This mutant has a hardcoded 10% damage reduction, since it is considered a zombie.'])
 
     game_desc = ['Your game difficulty has a {:.0%} damage multiplier.'.format(difficulty_mult[game_difficulty])]
 
@@ -890,7 +890,7 @@ def update_output(submit, weapon, bullet, target, hitzone, faction, dist, barrel
     if is_mutant == True: #if chosen target is mutant:
         outcome = anomaly_engine_pen(mutant_hit(input_array), bullet, target, hitzone)
         output = [
-            'Estimated damage: {}   Shots to kill: {}'.format(round(outcome[1], 6), ttk[0])
+            'Estimated damage: {}, shots to kill: {}'.format(round(outcome[1], 6), ttk[0])
         ]
         if outcome[0] == True:
             output.extend([html.Br(), 'Shot penetrated armor!'])
