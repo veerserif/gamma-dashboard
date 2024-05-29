@@ -395,7 +395,7 @@ app = Dash(external_stylesheets=[dbc.themes.DARKLY, 'damage-sim/assets/style.css
 
 #design header here
 title_section = dbc.NavbarSimple( #header
-        brand="GBO Ballistics Damage Simulator",
+        brand="GAMMA Ballistics Damage Simulator", #name changed on request
         brand_href='#',
         color='primary',
         dark=True
