@@ -908,7 +908,7 @@ def output_cards(submit, show_override, armor_override, scale_display, weapon, b
         if npc_dict['zombie_modifier'] < 1:
             target_desc.extend([html.Br(), 'This mutant has a hardcoded 10% damage reduction, since it is considered a zombie.'])
 
-    game_desc = ['Your game difficulty has a {:.0%} damage multiplier.'.format(difficulty_mult[game_difficulty])]
+    game_desc = ['Your game difficulty has a {:.0%} damage and AP multiplier.'.format(difficulty_mult[game_difficulty])]
 
     #create output dictionary    
     output_dict = dict(
