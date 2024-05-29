@@ -290,12 +290,19 @@ def shots_to_pen(input_array): #how many shots needed to destroy armor at hitzon
     input_dict = dict(zip(keys, input_array))
     
     shots_to_pen = 1 # min. shot to penetrate is 1
+    ap_scale = 0.75 #anomaly engine default
+    if input_dict['target'].find('m_') == -1: #if not mutant. i really should have made this a function.
+        ap_scale = stalkers_df.loc[input_dict['target']]['ap_scale']
+    elif input_dict['target'].find('stalker_') == -1: #if NOT stalker
+        ap_scale = 0.75
     local_ap = get_stalkerhit_ap(input_array)
     bone_armor = get_armor(input_dict['target'], input_dict['hitzone'])
     loss_increment = local_ap * 0.6
     
-    if local_ap < bone_armor:
-        shots_to_pen = math.ceil(bone_armor / loss_increment) # round UP to nearest integer, since 3.1 = needs 4 shots to pen
+    if local_ap * ap_scale < bone_armor:
+        shots_to_pen = math.ceil(bone_armor - local_ap * ap_scale / loss_increment) # round UP to nearest integer, since 3.1 = needs 4 shots to pen
+    if shots_to_pen < 1: #clamp minimum to 1
+        shots_to_pen = 1
     return shots_to_pen
 
 
@@ -330,9 +337,12 @@ def stalker_hit(input_array, bone_armor = None):
     post_armor = stalker_armor_calc(local_ap, gbo_dmg, bone_armor, hit_fraction, hp_no_penetration_penalty)
     return post_armor
     
-def anomaly_engine_pen(gbo_dmg, bullet, target, hitzone): #how the engine handles pen or non-pen hits
+def anomaly_engine_pen(gbo_dmg, bullet, target, hitzone, armor_override=None): #how the engine handles pen or non-pen hits
     ap = ammo_df.loc[bullet]['k_ap'] #* 10
-    armor = get_armor(target, hitzone)
+    if armor_override != None: #if armor_override is provided
+        armor = armor_override
+    else:
+        armor = get_armor(target, hitzone)
     hit_fraction = 0.0
     d_hit_power = 0.0
     final_dmg = gbo_dmg
@@ -488,6 +498,81 @@ input_field_difficulty = html.Div([
             ], value='hard', inline=True
     )])
 
+input_display_options = html.Div([
+    dbc.Switch(id='scale-output-numbers', label='Scale output numbers', value=True, style={'padding-top':'0.5em'}),
+    dbc.Tooltip('Multiplies most numbers by 100 for readability', target='scale-output-numbers'),
+    dbc.Switch(id='show-advanced-options', label='Enable armor override', value=False)
+])
+
+input_advanced_options = html.Div([
+    dbc.Label('Armor override'),
+    dbc.Input(
+        id='armor-override',
+        type='number',
+        inputmode='numeric',
+        min=0, max=1, step='any',
+        debounce=True
+    ),
+    dbc.FormText('Must be between 0 and 1. Overwrites default armor value for chosen hitzone/profile. Clear if not using!')
+], id='advanced-options-div', style={'display': 'inherit'})
+
+#design output cards here
+
+output_cards_1 = html.Div([
+    dbc.CardGroup(
+        [
+            dbc.Card([
+                dbc.CardHeader('Chosen weapon info'),
+                dbc.CardBody(
+                    [
+                        html.H6(id='weapon-card-title'),
+                        html.P(id='weapon-card-desc')
+                    ]
+                )
+            ]),
+            dbc.Card([
+                dbc.CardHeader('Ammo info'),
+                dbc.CardBody(
+                    [
+                        html.H6(id='ammo-card-title'),
+                        html.P(id='ammo-card-desc')
+                    ]
+                )
+            ])
+        ])
+])
+
+output_cards_2 = html.Div([
+    dbc.CardGroup([
+        dbc.Card([
+                dbc.CardHeader('Target info'),
+                dbc.CardBody(
+                    [
+                        html.H6('', id='target-card-title'),
+                        html.P('', id='target-card-desc')
+                    ]
+                )
+            ]),
+        dbc.Card([
+            dbc.CardHeader('Game info'),
+            dbc.CardBody(
+                [
+                    html.P(id='game-card-desc')
+                ]
+            )
+        ])
+    ])
+])
+
+output_damage_info = html.Div([
+    dbc.Card(
+        [   
+            dbc.CardHeader('Final damage output'),
+            dbc.CardBody(id='output-div'),
+            dbc.CardFooter('This calculator assumes all targets are on full health.')
+        ])
+])
+
 sim_explanation = dcc.Markdown('''
     ##### What's the point of this?
     Sating my curiosity, practicing Python/Pandas/Dash, providing an easy tool to play around with damage calculations. Source csvs are available [on Github](https://github.com/veerserif/gamma-dashboard/tree/main/damage-sim/src).
@@ -549,63 +634,6 @@ sim_explanation = dcc.Markdown('''
     I wish I knew.
 ''')
 
-#design output cards here
-
-output_cards_1 = html.Div([
-    dbc.CardGroup(
-        [
-            dbc.Card([
-                dbc.CardHeader('Chosen weapon info'),
-                dbc.CardBody(
-                    [
-                        html.H6(id='weapon-card-title'),
-                        html.P(id='weapon-card-desc')
-                    ]
-                )
-            ]),
-            dbc.Card([
-                dbc.CardHeader('Ammo info'),
-                dbc.CardBody(
-                    [
-                        html.H6(id='ammo-card-title'),
-                        html.P(id='ammo-card-desc')
-                    ]
-                )
-            ])
-        ])
-])
-
-output_cards_2 = html.Div([
-    dbc.CardGroup([
-        dbc.Card([
-                dbc.CardHeader('Target info'),
-                dbc.CardBody(
-                    [
-                        html.H6('', id='target-card-title'),
-                        html.P('', id='target-card-desc')
-                    ]
-                )
-            ]),
-        dbc.Card([
-            dbc.CardHeader('Game info'),
-            dbc.CardBody(
-                [
-                    html.P(id='game-card-desc')
-                ]
-            )
-        ])
-    ])
-])
-
-output_damage_info = html.Div([
-    dbc.Card(
-        [   
-            dbc.CardHeader('Final damage output'),
-            dbc.CardBody(id='output-div'),
-            dbc.CardFooter('Damage over 1 is a one-shot kill.')
-        ])
-])
-
 #do styling down there
 app.layout = [
     dbc.Container([
@@ -632,6 +660,8 @@ app.layout = [
 
                     input_field_distance,
                     input_field_difficulty,
+                    input_display_options,
+                    input_advanced_options,
                     
                     html.Div([
                         dbc.Button('Calculate', id='submit-button', n_clicks=0)
@@ -642,7 +672,7 @@ app.layout = [
 
             dbc.Col([ 
                 #right side, outputs
-                dbc.Alert('You are missing inputs!', 
+                dbc.Alert('You have missing or invalid inputs!', 
                         id='missing-input-alert',
                         color = 'warning',
                         is_open=False,
@@ -686,6 +716,18 @@ def set_target_select(btn_mutant,btn_stalker):
         return False, [{'label': x[1], 'value': x[0]} for x in zip(stalkers_df.index, stalkers_df['name'])], 'stalker_sunrise', {'display': 'inherit'}, hitzones_stalkers, {'display': 'inherit'}, "My target is, or is wearing..."
     else:
         raise PreventUpdate
+    
+#Advanced options callback
+@callback(
+        Output('advanced-options-div', 'style'),
+        Input('show-advanced-options', 'value')
+)
+
+def show_advanced_options(show_options):
+    if show_options ==  True:
+        return {'display':'inherit'}
+    else:
+        return {'display':'none'}
 
 #Barrel condition label for user
 @callback(
@@ -741,6 +783,8 @@ def limit_ammo_dropdown(weapon, limiter):
         #mutant_button = Input('mutant-button', 'n_clicks'),
         #stalker_button = Input('stalker-button', 'n_clicks'),
         submit = Input('submit-button', 'n_clicks'),
+        show_override = State('show-advanced-options', 'value'),
+        armor_override = State('armor-override', 'value'),
         weapon = State('weapons-dropdown', 'value'),
         bullet = State('ammo-dropdown', 'value'),
         target = State('target-type-inputs', 'value'),
@@ -754,10 +798,15 @@ def limit_ammo_dropdown(weapon, limiter):
     prevent_initial_call=True
 )
 
-def missing_inputs(submit, weapon, bullet, target, hitzone, faction, dist, barrel, game_difficulty, silencer):
+def missing_inputs(submit, show_override, armor_override, weapon, bullet, target, hitzone, faction, dist, barrel, game_difficulty, silencer):
     show_alert = False
     if None in [weapon, bullet, target, hitzone, faction, dist, barrel, game_difficulty, silencer]:
         show_alert = True
+    if show_override == True:
+        if armor_override == None:
+            show_alert = True
+        elif (armor_override > 1) or (armor_override < 0): #if armor override is on but value too large
+            show_alert = True
     return show_alert
 
 # Reflect chosen weapon + ammo stats
@@ -773,6 +822,9 @@ def missing_inputs(submit, weapon, bullet, target, hitzone, faction, dist, barre
     ),
     inputs=dict( # ('weapon', 'bullet', 'target', 'hitzone', 'faction', 'dist', 'barrel', 'game_difficulty', 'silencer')
         submit = Input('submit-button', 'n_clicks'),
+        show_override = State('show-advanced-options', 'value'),
+        armor_override = State('armor-override', 'value'),
+        scale_display = State('scale-output-numbers', 'value'),
         weapon = State('weapons-dropdown', 'value'),
         bullet = State('ammo-dropdown', 'value'),
         target = State('target-type-inputs', 'value'),
@@ -786,10 +838,19 @@ def missing_inputs(submit, weapon, bullet, target, hitzone, faction, dist, barre
     prevent_initial_call=True
 )
 
-def output_cards(submit, weapon, bullet, target, hitzone, faction, dist, barrel, game_difficulty, silencer):
-    if None in [weapon, bullet, target, hitzone, faction, dist, barrel, game_difficulty, silencer]: # no update if fields are empty
+def output_cards(submit, show_override, armor_override, scale_display, weapon, bullet, target, hitzone, faction, dist, barrel, game_difficulty, silencer):
+    if None in [weapon, bullet, target, hitzone, faction, dist, barrel, game_difficulty, silencer]: # no update if fields are empty, or override over 1
         raise PreventUpdate
-    wpn_desc = ['Weapon base damage: {}'.format(weapons_df.loc[weapon]['hit_power']), html.Br()]
+    if show_override == True:
+        if armor_override == None:
+            raise PreventUpdate
+        elif (armor_override > 1) or (armor_override < 0): #if armor override is on but value too large
+            raise PreventUpdate
+    if scale_display == True: #if we should mult. numbers by 100 for display
+        display_scale = 100
+    else:
+        display_scale = 1
+    wpn_desc = ['Weapon base damage: {}'.format(round(weapons_df.loc[weapon]['hit_power'] * display_scale, 2)), html.Br()]
     ammo = get_ammo_stats(bullet)
     npc_dict = {}
     barrel_mult = barrel_cond(barrel/100)
@@ -805,7 +866,7 @@ def output_cards(submit, weapon, bullet, target, hitzone, faction, dist, barrel,
 
     ammo_desc = ['Ammo damage multiplier: x' + str(ammo['k_hit']), 
                  html.Br(),
-                 'Ammo AP value: ' + str(ammo['k_ap']*10)]
+                 'Ammo AP value: ' + str(ammo['k_ap']*10 * display_scale)]
     if target.find('stalker_') != -1: #if is stalker
         ammo_desc.extend([html.Br(),'GBO per-ammo damage multiplier: x{}'.format(ammo['ammo_mult_stalker'])])
     elif target.find('m_gigant') != -1: #if is pseudogiant
@@ -819,8 +880,12 @@ def output_cards(submit, weapon, bullet, target, hitzone, faction, dist, barrel,
     if target.find('stalker_') != -1: #if target is stalker
         npc_dict = get_npc_stats(target)
         faction_res = npc_faction_res(faction)
+        target_desc.append("The target's hitzone damage multiplier is {:.0%}. ".format(stalker_bone_mult[hitzone]))
+        if show_override == True: #if there's an override, display it instead of hitzone value
+            target_desc.append("Armor override applied, armor value is {}.".format(armor_override * display_scale))
+        else:
+            target_desc.append("Hitzone base armor value is {}.".format(get_armor(target, hitzone) * display_scale))
         target_desc.extend([
-            "The target's hitzone damage multiplier is {:.0%}. Hitzone base armor value is {}.".format(stalker_bone_mult[hitzone], get_armor(target, hitzone)), 
             html.Br(),
             "The target's AP resistance is {:.0%}, and non-penetrating shots have a damage cap of {:.0%}. ".format(npc_dict['ap_scale'], npc_dict['hit_fraction'])
             ])
@@ -828,9 +893,13 @@ def output_cards(submit, weapon, bullet, target, hitzone, faction, dist, barrel,
             target_desc.append('The target\'s faction means they take {:.0%} damage and {:.0%} AP.'.format(faction_res['dmg_res'], faction_res['ap_res']))
     elif target.find('m_') != -1: #if target is a mutant
         npc_dict = get_mutant_stats(target)
+        target_desc.append('The mutant\'s hitzone damage multiplier is {:.1%}, '.format(npc_dict[hitzone]))
+        if show_override == True: #if armor override is on
+            target_desc.append('armor override value of {}.'.format(armor_override * display_scale))
+        else:
+            target_desc.append('with a base armor value of {}.'.format(get_armor(target, hitzone) * display_scale))
         target_desc.extend(
             [
-                'The mutant\'s hitzone damage multiplier is {:.1%}, with a base armor value of {}.'.format(npc_dict[hitzone], get_armor(target)),
                 html.Br(),
                 'Non-penetrating shots have a damage cap of {:.0%}, and mutants never have additional AP resistance.'.format(npc_dict['hit_fraction'])
             ])
@@ -859,6 +928,9 @@ def output_cards(submit, weapon, bullet, target, hitzone, faction, dist, barrel,
     Output('output-div', 'children'),
     inputs=dict( # ('weapon', 'bullet', 'target', 'hitzone', 'faction', 'dist', 'barrel', 'game_difficulty', 'silencer')
         submit = Input('submit-button', 'n_clicks'),
+        show_override = State('show-advanced-options', 'value'),
+        armor_override = State('armor-override', 'value'),
+        scale_display = State('scale-output-numbers', 'value'),
         weapon = State('weapons-dropdown', 'value'),
         bullet = State('ammo-dropdown', 'value'),
         target = State('target-type-inputs', 'value'),
@@ -872,12 +944,21 @@ def output_cards(submit, weapon, bullet, target, hitzone, faction, dist, barrel,
     prevent_initial_call=True
 )
 
-def update_output(submit, weapon, bullet, target, hitzone, faction, dist, barrel, game_difficulty, silencer):
+def update_output(submit, show_override, armor_override, scale_display, weapon, bullet, target, hitzone, faction, dist, barrel, game_difficulty, silencer):
     if None in [weapon, bullet, target, hitzone, faction, dist, barrel, game_difficulty, silencer]:
         raise PreventUpdate
+    if show_override == True:
+        if armor_override == None:
+            raise PreventUpdate
+        elif (armor_override > 1) or (armor_override < 0): #if armor override is on but value too large
+            raise PreventUpdate
     is_mutant = False
     outcome=[]
     output = []
+    if scale_display == True: #if the display SHOULD be scaled
+        display_scale = 100
+    else:
+        display_scale = 1
     #construct array for input
     input_array = [weapon, bullet, target, hitzone, faction, dist, barrel/100, game_difficulty, silencer]
     if target.find('stalker') == -1: #if not a stalker i.e. a mutant
@@ -887,21 +968,23 @@ def update_output(submit, weapon, bullet, target, hitzone, faction, dist, barrel
         is_mutant = False
     else: #nothing in target
         raise PreventUpdate
+    if show_override == False: #if user has NOT chosen to enable armor override
+        armor_override = None
     
     ttk = time_to_kill(input_array)
     if is_mutant == True: #if chosen target is mutant:
-        outcome = anomaly_engine_pen(mutant_hit(input_array), bullet, target, hitzone)
+        outcome = anomaly_engine_pen(mutant_hit(input_array), bullet, target, hitzone, armor_override)
         output = [
-            'Estimated damage: {}, shots to kill: {}'.format(round(outcome[1], 6), ttk[0])
+            'Estimated damage: {}, shots to kill: {}'.format(round(outcome[1] * display_scale, 4), ttk[0])
         ]
         if outcome[0] == True:
             output.extend([html.Br(), 'Shot penetrated armor!'])
     elif is_mutant == False:
-        outcome = stalker_hit(input_array)
+        outcome = stalker_hit(input_array, armor_override)
         #print(outcome) #debugging
         if outcome [0] == True: #shot penetrates armor
             output = [
-            'Estimated damage: {}, shots to kill: {}'.format(round(outcome[2], 6), ttk[0]),
+            'Estimated damage: {}, shots to kill: {}'.format(round(outcome[2] * display_scale, 6), ttk[0]),
             html.Br(),
             'Shot penetrated armor!'
             ]
@@ -909,21 +992,21 @@ def update_output(submit, weapon, bullet, target, hitzone, faction, dist, barrel
             if len(outcome) > 3: #if we get to the random damage part
                 output.extend([
                 'Estimated average damage: {}, minimum possible damage: {}, maximum possible damage: {}.'.format(
-                    round(outcome[2], 6),
-                    round(outcome[3], 6),
-                    round(outcome[4], 6)
+                    round(outcome[2] * display_scale, 4),
+                    round(outcome[3] * display_scale, 4),
+                    round(outcome[4] * display_scale, 4)
                 ),
                 html.Br(), 'Average shots to kill: {}, min. shots: {}, max. shots: {}'.format(
                     ttk[0], 
                     ttk[1],
                     ttk[2]),
-                html.Br(), 'First shot did not penetrate armor. New armor value: {}'.format(round(outcome[1], 2)),
+                html.Br(), 'First shot did not penetrate armor. New armor value: {}'.format(round(outcome[1] * display_scale, 2)),
                 html.Br(), 'It would take {} shots to break armor.'.format(shots_to_pen(input_array))
             ])
             else: #no rand damage
                 output.extend([
-                    'Estimated damage: {}, shots to kill: {}'.format(round(outcome[2], 6), ttk[0]),
-                    html.Br(), 'First shot did not penetrate armor. New armor value: {}'.format(round(outcome[1], 2)),
+                    'Estimated damage: {}, shots to kill: {}'.format(round(outcome[2] * display_scale, 6), ttk[0]),
+                    html.Br(), 'First shot did not penetrate armor. New armor value: {}'.format(round(outcome[1], 2) * display_scale),
                     html.Br(), 'It would take {} shots to break armor.'.format(shots_to_pen(input_array))
                 ])
     return output
