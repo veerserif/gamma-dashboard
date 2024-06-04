@@ -166,12 +166,12 @@ def npc_faction_res(faction): #per-faction resistances
     if faction == "greh":
         faction_res['dmg_res'] = 0.3
         faction_res['ap_res'] = 0.9
-    elif faction == "isg":
-        faction_res['dmg_res'] = 0.8
-        faction_res['ap_res'] = 0.7
     elif faction == "monolith":
-        faction_res['dmg_res'] = 0.65
+        faction_res['dmg_res'] = 0.8
         faction_res['ap_res'] = 0.9
+    elif faction == "isg":
+        faction_res['dmg_res'] = 0.65
+        faction_res['ap_res'] = 0.7
     elif faction == "bandit":
         faction_res['ap_res'] = 1.1
     return faction_res
