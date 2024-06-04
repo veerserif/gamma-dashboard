@@ -6,8 +6,8 @@ stalker_bandit_3,"Bandit, light armor, no helmet",0.85,0.9,0.011,0
 stalker_berill,"Berill-5M, medium, no helmet",0.3,0.75,0.2,0
 stalker_berill_3,"Berill-5M, medium, helmet",0.3,0.75,0.2,0.3
 stalker_exo,"Exosuit, helmet",0.15,0.7,0.55,0.3
-stalker_exo_n,"Exosuit, heavy helmet",0.15,0.7,0.65,0.35
-stalker_exo_s,"Exosuit, light helmet",0.15,0.7,0.55,0.15
+stalker_exo_n,"Nosorog, heavy helmet",0.15,0.7,0.65,0.35
+stalker_exo_s,"Exoskeleton, light helmet",0.15,0.7,0.55,0.15
 stalker_exolight,"Exolight, helmet",0.3,0.7,0.3,0.3
 stalker_lcs,"LCS, medium, no helmet",0.5,0.8,0.15,0
 stalker_lcs_3,"LCS, medium, helmet",0.5,0.8,0.15,0.3
