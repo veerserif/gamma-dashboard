@@ -162,10 +162,10 @@ wpn_spas12,SPAS-12,0.79,FALSE,ammo_12x70_buck
 wpn_spas12_nimble,SPAS-12 (_nimble),0.79,FALSE,ammo_12x70_buck
 wpn_sr1m,Serdyukov SR1M Gyurza,0.49,FALSE,ammo_9x21_sp10
 wpn_sr1m_gurza_up,Serdyukov SR1M Gyurza Custom,0.49,FALSE,ammo_9x21_sp10
-wpn_sr2_m1,SR-2M Veresk,0.49,FALSE,ammo_9x21_sp10
-wpn_sr2_veresk,SR-25,0.49,FALSE,ammo_9x21_sp10
+wpn_sr2_m1,SR-2M Veresk (_m1),0.49,FALSE,ammo_9x21_sp10
+wpn_sr2_veresk,SR-2M Veresk,0.49,FALSE,ammo_9x21_sp10
 wpn_sr2_veresk_sr2_upkit,"SR-2M Veresk ""Tactical""",0.49,FALSE,ammo_9x21_sp10
-wpn_sr25,SR-2M Veresk (_m1),1,FALSE,ammo_7.62x51_fmj
+wpn_sr25,SR-25,1,FALSE,ammo_7.62x51_fmj
 wpn_steyr_scout_big,Steyr Scout 7.62,1.7,FALSE,ammo_7.62x51_fmj
 wpn_sv98,SV98,1.1,FALSE,ammo_7.62x54_7h1
 wpn_svd_m1,SVD,1.1,FALSE,ammo_7.62x54_7h1
