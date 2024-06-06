@@ -38,7 +38,7 @@ wpn_ash12_sup,ShAK-12 (_sup),0.92,FALSE,ammo_12.7x55_fmj
 wpn_aug,Steyr AUG A1,0.51,FALSE,ammo_5.56x45_fmj
 wpn_aug_a3_custom_bas,Steyr AUG A3 Commando,0.51,FALSE,ammo_5.56x45_fmj
 wpn_aug_freedom,Steyr AUG A3 9mm XS,0.47,FALSE,ammo_9x19_fmj
-wpn_aug_merc,Thales F90,0.47,FALSE,ammo_5.56x45_fmj
+wpn_aug_merc,Thales EF88,0.47,FALSE,ammo_5.56x45_fmj
 wpn_beretta_camo,Beretta Px4 Storm,0.46,FALSE,ammo_9x19_fmj
 wpn_beretta_modern,Beretta 92F,0.46,FALSE,ammo_9x19_fmj
 wpn_bizon,PP-19 Bizon,0.46,FALSE,ammo_9x18_fmj
@@ -108,9 +108,9 @@ wpn_mp443,MP-443 Grach,0.46,FALSE,ammo_9x19_fmj
 wpn_mp5,MP5A3,0.47,FALSE,ammo_9x19_fmj
 wpn_mp5_custom,MP5A3 (_custom),0.47,FALSE,ammo_9x19_fmj
 wpn_mp5_nimble,"MP5A3 ""Frasier""",0.56,FALSE,ammo_11.43x23_fmj
-wpn_mp5sd,MP5SD6,0.56,TRUE,ammo_11.43x23_fmj
-wpn_mp5sd_custom,MP5SD6 (_custom),0.56,TRUE,ammo_11.43x23_fmj
-wpn_mp7,MP7,0.47,FALSE,ammo_9x19_fmj
+wpn_mp5sd,MP5SD6,0.56,TRUE,ammo_9x19_fmj
+wpn_mp5sd_custom,MP5SD6 (_custom),0.56,TRUE,ammo_9x19_fmj
+wpn_mp7,MP7,0.47,FALSE,aammo_5.7x28_ss190
 wpn_oc33,OTs-33 Pernach,0.45,FALSE,ammo_9x18_fmj
 wpn_p90_gs,FN P90 (p90_gs),0.46,FALSE,ammo_5.7x28_ss190
 wpn_p90gamma,FN P90 (p90gamma),0.46,FALSE,ammo_5.7x28_ss190
@@ -178,14 +178,14 @@ wpn_thompson_m1a1,Thompson M1A1,0.46,FALSE,ammo_11.43x23_fmj
 wpn_toz106,TOZ-106,0.8,FALSE,ammo_20x70_buck
 wpn_toz106_m1,TOZ-106 (_m1),0.8,FALSE,ammo_20x70_buck
 wpn_toz34,TOZ-34,0.8,FALSE,ammo_12x70_buck
-wpn_toz34_decor,TOZ-34 (_decor),0.53,FALSE,ammo_23x75_shrapnel
+wpn_toz34_decor,TOZ-34 (_decor),0.53,FALSE,ammo_12x70_buck
 wpn_toz34_mark4_23,"TOZ-34 ""Chimera Hunter""",0.53,FALSE,ammo_23x75_shrapnel
-wpn_toz34_obrez,TOZ-34 (Sawn-off),0.77,FALSE,ammo_23x75_shrapnel
+wpn_toz34_obrez,TOZ-34 (Sawn-off),0.77,FALSE,ammo_12x70_buck
 wpn_tt33,TT-33,0.45,FALSE,ammo_7.62x25_p
 wpn_tt33_modern,TT-33 (_modern),0.45,FALSE,ammo_7.62x25_p
 wpn_ump45_custom,UMP45,0.56,FALSE,ammo_11.43x23_fmj
-wpn_usp_match,USP Match,0.55,FALSE,ammo_9x19_fmj
-wpn_usp_nimble,"USP Match ""Wolfhound""",0.47,FALSE,ammo_9x19_fmj
+wpn_usp_match,USP Match,0.55,FALSE,ammo_11.43x23_fmj
+wpn_usp_nimble,"USP Match ""Wolfhound""",0.47,FALSE,ammo_11.43x23_fmj
 wpn_val,AS Val,0.62,TRUE,ammo_9x39_pab9
 wpn_vihr,SR-3M Vikhr,0.62,FALSE,ammo_9x39_pab9
 wpn_vintorez_isg,RD-939,0.88,TRUE,ammo_9x39_pab9
