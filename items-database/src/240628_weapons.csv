@@ -1,0 +1,390 @@
+,Name,Accuracy,Handling,Base Damage,Fire Rate,Mag Size,Max Range (m),Muzzle Velocity (m/s),Reliability,Recoil Control,Ammo Type,Weight (kg),Cost (₽),Weapon Kit Type,Weapon Class,Obtainable in GAMMA
+wpn_steyr_scout,Steyr Scout 5.56,93.36,47.73,100,40,8,1400,1350,54%,27.88,5.56x45mm,3.96,33000,Type C,Sniper,No
+wpn_steyr_scout_big,Steyr Scout 7.62,97.36,26.18,100,40,5,1950,1500,54%,25.5,7.62x51mm,4.4,53296,Type C,Sniper,Yes
+wpn_winchester1873,Winchester Model 1873,91.36,32,70,95,12,1100,600,70%,30.75,.357 cal,4.3,27691,Type C,Sniper,Yes
+wpn_9a91,9A-91,82.36,58.82,62,700,20,600,500,91%,70.5,9x39mm,1.8,28860,Type D,Rifle,Yes
+wpn_abakan,AN-94,82.36,34.45,50,600,30,1000,900,92%,63.25,5.45x39mm,3.85,35850,Type C,Rifle,No
+wpn_abakan_camo,AN-94,84,34.45,50,600,30,1000,900,92%,60.62,5.45x39mm,3.85,40860,Type C,Rifle,No
+wpn_abakan_n,AN-94,82.36,34.45,50,600,30,1000,900,92%,60.62,5.45x39mm,3.85,35850,Type C,Rifle,Yes
+wpn_ace52,Galil ACE-52,87,33.82,100,620,25,800,835,91%,38.75,7.62x51mm,3.6,38580,Type D,Rifle,Yes
+wpn_adar2_15,ADAR 2-15,84,47.73,48,700,30,500,866,92%,35,5.56x45mm,2.88,19600,Type B,Rifle,Yes
+wpn_aek,AEK-971,84,45.82,50,900,30,1000,880,92%,67,5.45x39mm,3.4,38950,Type C,Rifle,Yes
+wpn_ak,AK-47,67.36,39.73,58,600,30,900,715,93%,52.62,7.62x39mm,3.3,22650,Type D,Rifle,No
+wpn_aks,AKS-47,67.36,39.73,58,600,30,900,715,93%,45.25,7.62x39mm,3.2,22650,Type D,Rifle,No
+wpn_ak101,AK-101,77.36,41.55,50,600,30,1000,900,92%,63.38,5.56x45mm,3.6,33850,Type C,Rifle,Yes
+wpn_ak101_camo,AK-101,82,41.55,50,645,30,1000,920,93%,63.38,5.56x45mm,3.6,38380,Type C,Rifle,No
+wpn_ak102,AK-102,76.64,59.64,49,600,30,1000,850,92%,63.38,5.56x45mm,3.2,26690,Type C,Rifle,No
+wpn_ak103,AK-103,74,39.73,58,600,30,900,715,92%,52.62,7.62x39mm,3.6,33860,Type D,Rifle,Yes
+wpn_ak103_camo,AK-103,80,39.73,58,630,30,900,715,93%,49.5,7.62x39mm,3.6,38980,Type D,Rifle,No
+wpn_ak104,AK-104,68.64,59.64,57,600,30,900,670,92%,49.5,7.62x39mm,3.2,26550,Type D,Rifle,No
+wpn_ak104_alfa,"AK-104 ""Alpha""",77.36,59.64,57,600,30,900,670,92%,54.5,7.62x39mm,2.5,66550,Type D,Rifle,Yes
+wpn_ak105,AK-105,74.64,59.64,49,650,30,1000,830,92%,49.88,5.45x39mm,3.2,24480,Type C,Rifle,Yes
+wpn_ak105_swamp,"AK-105 ""Swamp Thing""",78.64,59.64,50,850,45,1000,910,92%,57.25,5.56x45mm,3.8,24480,Type C,Rifle,Yes
+wpn_ak105_shakal,"AK-105 ""Shakal""",78.64,59.64,50,850,45,1000,910,92%,57.25,5.45x39mm,3.48,24480,Type C,Rifle,Yes
+wpn_ak105_sp,"AK-105 ""Specialist""",77.36,59.64,49,650,45,1000,830,92%,49.88,5.45x39mm,2.8,39480,Type C,Rifle,No
+wpn_ak12,AK-12,80,42.45,50,650,30,1000,895,92%,77.62,5.45x39mm,3.2,36880,Type C,Rifle,No
+wpn_ak12_custom,"AK-12 ""Monolith""",78,42.45,50,650,45,1000,895,92%,59,5.45x39mm,3.1,70000,Type C,Rifle,Yes
+wpn_ak12_custom_mono_kit,"AK-12 ""Monolith's Light""",80,42.45,51,700,60,1000,900,92%,60.62,5.45x39mm,3.655,70000,Type C,Rifle,Yes
+wpn_ak12_m1,AK-12,76.64,42.45,50,650,30,1000,895,92%,59,5.45x39mm,3.2,46880,Type C,Rifle,Yes
+wpn_ak5c_bas,AK 5C,81.36,57.45,50,750,30,1000,880,92%,79.25,5.56x45mm,4,55560,Type C,Rifle,Yes
+wpn_ak5c_bas_5c_tik,"AK 5C ""ISG Special""",81.36,57.45,49,800,30,800,900,92%,79.25,5.56x45mm,3.7,55560,Type C,Rifle,No
+wpn_ak5c_isg,"AK 5C ""ISG""",81.36,57.45,50,800,30,800,900,92%,79.25,5.56x45mm,3,85560,Type C,Rifle,Yes
+wpn_ak74,AK-74N,76.64,41.55,50,650,30,1000,880,92%,77.62,5.45x39mm,3.3,26950,Type C,Rifle,No
+wpn_ak74_alt,AK-74N,80,41.55,50,660,30,1000,895,93%,77.62,5.45x39mm,3.3,30380,Type C,Rifle,Yes
+wpn_ak74_custom,AK-74N,81.36,41.55,50,640,30,1000,905,94%,77.62,5.45x39mm,3.3,31580,Type C,Rifle,Yes
+wpn_ak74_modern,AK-74N,77.36,41.55,50,650,30,1000,887,94%,77.62,5.45x39mm,3.3,29560,Type C,Rifle,No
+wpn_ak74_old,AK-74,76,41.55,50,650,30,1000,875,92%,77.62,5.45x39mm,3.3,23580,Type C,Rifle,No
+wpn_ak74_rpk,AK-74N EOTech,74.64,41.55,50,650,45,1000,901,93%,65.88,5.45x39mm,3.621,33680,Type C,Rifle,No
+wpn_ak74m,AK-74M,78.64,41.55,50,600,30,1000,880,92%,77.62,5.45x39mm,3.4,30980,Type C,Rifle,No
+wpn_ak74m_camo,AK-74M,82,41.55,50,620,30,1000,895,92%,77.62,5.45x39mm,3.4,38360,Type C,Rifle,No
+wpn_ak74m_alt,AK-74M,78.64,41.55,50,635,30,1000,895,92%,77.62,5.45x39mm,3.4,31850,Type C,Rifle,No
+wpn_ak74m_custom,AK-74M,80.64,41.55,50,650,30,1000,888,92%,77.62,5.45x39mm,3.4,33980,Type C,Rifle,No
+wpn_ak74m_duty,AK-74M,80,41.55,50,600,30,1000,905,92%,77.62,5.45x39mm,3.4,38580,Type C,Rifle,No
+wpn_ak74m_pka,AK-74M PK-A,80,41.55,50,650,30,1000,910,94%,77.62,5.45x39mm,3.4,40680,Type C,Rifle,No
+wpn_ak74m_beard,"AK-74M ""Venom""",78.64,41.55,50,600,45,1000,880,92%,65.88,5.45x39mm,3,38980,Type C,Rifle,Yes
+wpn_ak74m_n,AK-74M,78.64,41.55,50,600,30,1000,880,92%,59,5.45x39mm,3.4,30980,Type C,Rifle,Yes
+wpn_ak74u_n1,AKS-74U,62.64,60.91,49,700,30,900,735,91%,49,5.45x39mm,2.48,20870,Type C,Rifle,Yes
+wpn_ak74u_tac,"AKS-74U ""Tactician""",73.36,42.45,49,880,45,1000,895,92%,59,5.45x39mm,3,38950,Type C,Rifle,Yes
+wpn_ak74_isg,RD-74M,80,42.45,53,650,30,1000,895,92%,85.88,5.45x39mm,3.2,126880,Type C,Rifle,Yes
+wpn_ak74_n,AK-74,76.64,41.55,50,650,30,1000,880,92%,53.12,5.45x39mm,3.3,26950,Type C,Rifle,Yes
+wpn_ak74_pmc,"AK-74 ""PMC""",80,42.45,49,650,45,1000,895,92%,77.62,5.45x39mm,3.4,68880,Type C,Rifle,Yes
+wpn_akm,AKM,70,39.73,58,600,30,900,715,92%,52.62,7.62x39mm,3.3,28780,Type D,Rifle,No
+wpn_akms,AKMS,70,39.73,58,600,30,900,715,92%,42.38,7.62x39mm,3.3,28780,Type C,Rifle,No
+wpn_akms_alt,AKMS,69.36,39.73,58,620,30,900,715,92%,42.38,7.62x39mm,3.3,26540,Type C,Rifle,Yes
+wpn_akms_bas,AKMS,70,39.73,58,600,30,900,715,92%,32.88,7.62x39mm,3.3,8780,Type D,Rifle,No
+wpn_akm_alfa,AK Alfa,78.64,41.55,57,600,30,1000,820,92%,69.38,7.62x39mm,3.5,75930,Type D,Rifle,Yes
+wpn_akm_bas,AKM,70,39.73,58,600,30,900,715,92%,32.88,7.62x39mm,3.3,8780,Type C,Rifle,Yes
+wpn_akm_isg,RD-47,78.64,41.55,58,700,30,1000,820,92%,65.88,7.62x39mm,3.4,96880,Type D,Rifle,Yes
+wpn_aks74,AKS-74,77.36,45.82,50,650,30,1000,870,92%,45.5,5.45x39mm,3.2,25860,Type C,Rifle,No
+wpn_aks74_new,AKS-74,78,45.82,50,655,30,1000,880,92%,45.5,5.45x39mm,3.2,26880,Type C,Rifle,No
+wpn_ak74u,AKS-74UN,62.64,60.91,49,700,30,900,735,91%,50.12,5.45x39mm,2.48,20870,Type C,Rifle,No
+wpn_ak74u_camo,AKS-74UN,64.64,60.91,49,765,30,900,745,92%,50.12,5.45x39mm,2.48,24550,Type C,Rifle,No
+wpn_ak74u_custom,AKS-74UN,66.64,60.91,49,715,30,900,752,90%,50.12,5.45x39mm,2.48,23880,Type C,Rifle,No
+wpn_ak74u_old,AK-74U,61.36,60.91,39,690,30,900,725,91%,50.12,5.45x39mm,2.48,17860,Type C,Rifle,No
+wpn_ak74u_snag,AK-74UNB,64.64,60.91,40,750,45,900,748,92%,50.12,5.45x39mm,2.98,28950,Type C,Rifle,No
+wpn_ak74u_isg,RD-74U,80,42.45,50,650,30,1000,895,92%,65.88,5.45x39mm,2.5,76880,Type C,Rifle,Yes
+wpn_ak74u_m1_isg,RD-74U Tactic,80,42.45,51,850,30,1000,895,92%,65.88,5.45x39mm,2.6,86880,Type C,Rifle,Yes
+wpn_am17,AM-17,77.73,42.45,50,750,30,850,895,92%,70.5,5.45x39mm,3.1,70000,Type C,Rifle,No
+wpn_amb17,AMB-17,80,42.45,85,800,30,690,600,92%,70.5,9x39mm,3,90580,Type D,Rifle,Yes
+wpn_aps,APS Stechkin,56.64,65.82,45,650,20,300,290,90%,37.75,9x18mm,1.02,9380,Type A,Pistol,Yes
+wpn_aps_bas,APS Stechkin,56.64,65.82,45,650,20,300,290,90%,42.5,9x18mm,1.02,9380,Type A,Pistol,No
+wpn_aps_bas_apsabigo,APS Stechkin,56.64,65.82,45,650,20,300,290,90%,42.5,9x18mm,0.995,9380,Type A,Pistol,Yes
+wpn_ar15_freedom,AR-15 HERA,84,47.73,50,770,60,1000,880,92%,97.38,5.56x45mm,3.15,140820,Type D,Rifle,No
+wpn_ash12,ShAK-12,86.64,56.27,92,450,20,900,750,75%,33.12,12.7x55mm,4.5,56890,Type D,Rifle,Yes
+wpn_aug,Steyr AUG A1,80,70.64,51,680,30,1000,930,92%,52.25,5.56x45mm,3.3,40680,Type C,Rifle,Yes
+wpn_aug_custom,Steyr AUG A2,80,70.64,51,700,30,1000,930,92%,52.25,5.56x45mm,3.3,42580,Type C,Rifle,No
+wpn_aug_freedom,Steyr AUG A3 9mm,65.36,71.55,47,750,32,400,402,93%,50.88,9x19mm,2.9,36110,Type A,SMG,Yes
+wpn_aug_merc,Thales EF88,82.36,71.55,47,720,32,400,402,93%,57.62,5.56x45mm,3.5,54180,Type C,Rifle,Yes
+wpn_aug_modern,Steyr AUG A3,80.64,71.55,47,700,32,400,402,93%,57.62,5.56x45mm,3,45690,Type C,Rifle,No
+wpn_aug_a1_bas,Steyr AUG A1,85.36,66.18,50,680,30,1000,930,91%,51.62,5.56x45mm,3.6,33600,Type C,Rifle,No
+wpn_aug_a1_custom_bas,Steyr AUG A1,85.36,66.18,50,880,30,1000,900,91%,55.25,5.56x45mm,3.2,43600,Type C,Rifle,No
+wpn_aug_a3,Steyr AUG A3,85.36,66.18,51,680,30,1000,930,91%,66.25,5.56x45mm,3.9,43600,Type C,Rifle,No
+wpn_aug_a3_bas,Steyr AUG A3,85.36,66.18,51,680,30,1000,930,91%,51.62,5.56x45mm,3.9,53600,Type C,Rifle,No
+wpn_aug_a3_custom_bas,Steyr AUG A3 Commando,85.36,66.18,51,780,30,1000,900,91%,55.25,5.56x45mm,4.5,73600,Type C,Rifle,Yes
+wpn_beretta,Beretta 92F,68,72.55,46,325,15,400,362,84%,37.25,9x19mm,0.95,7120,Type A,Pistol,No
+wpn_beretta_alt,Beretta 92F,69.36,72.55,46,363,15,400,362,85%,32.25,9x19mm,0.95,8290,Type A,Pistol,No
+wpn_beretta_camo,Beretta Px4 Storm,73.36,72.55,46,363,15,400,362,83%,32.25,9x19mm,0.95,11650,Type A,Pistol,Yes
+wpn_beretta_modern,Beretta 92F,70.64,72.55,46,330,15,400,362,86%,32.25,9x19mm,0.95,7120,Type A,Pistol,Yes
+wpn_bizon,PP-19 Bizon,84,72.09,46,650,64,300,320,93%,84.25,9x18mm,2.3,18560,Type A,SMG,Yes
+wpn_bm16,TOZ-66 (Sawn-off),43.36,58.45,77,1000,2,200,300,78%,26.62,12x76ga,1.92,9650,Type B,Shotgun,Yes
+wpn_bm16_alt,TOZ-66 (Sawn-off),46.64,58.45,77,1000,2,200,300,80%,25.25,12x76ga,1.92,12850,Type B,Shotgun,No
+wpn_bm16_full,TOZ-66,76.64,41.82,77,1000,2,200,300,80%,27.25,12x76ga,3.4,15480,Type B,Shotgun,Yes
+wpn_bm16_full_alt,TOZ-66,73.36,41.82,77,1000,2,200,300,80%,25.38,12x76ga,3.4,18250,Type B,Shotgun,No
+wpn_bm16_full_alt_23,"TOZ-34 ""Bear""",73.36,41.82,52,1000,2,200,200,80%,25.38,23x75mm,3.4,29850,Type B,Shotgun,No
+wpn_colt1911,Colt M1911,60,71.91,55,230,7,300,270,82%,27.75,.45 cal,1.075,8560,Type A,Pistol,Yes
+wpn_colt1911_alt,Colt M1911,61.36,71.91,55,235,7,300,270,84%,27.75,.45 cal,1.075,11280,Type A,Pistol,No
+wpn_colt1911_camo,Coonan .357 Magnum Compact,65.36,71.91,60,175,6,500,440,86%,25.75,.357 cal,1.114,13880,Type A,Pistol,Yes
+wpn_colt1911_custom,Strayer Voigt Infinity,62.64,71.91,60,250,15,500,440,85%,27.75,.45 cal,1.075,19260,Type A,Pistol,Yes
+wpn_colt1911_duty,"Colt M1911 ""Aries""",64,71.91,60,235,15,500,440,85%,27.75,.45 cal,1.075,14580,Type A,Pistol,Yes
+wpn_colt1911_merc,"Colt M1911 ""Orion""",66.64,71.91,60,240,15,500,440,87%,27.75,.45 cal,1.075,14860,Type A,Pistol,No
+wpn_colt1911_modern,Colt M1911,63.36,71.91,60,250,15,500,440,84%,27.75,.45 cal,1.075,12380,Type A,Pistol,No
+wpn_colt1911_new,Colt M1911,60.64,71.91,60,232,15,500,440,83%,27.75,.45 cal,1.075,10480,Type A,Pistol,Yes
+wpn_colt_kimber,Kimber Desert Warrior,67.36,71.91,60,245,8,500,440,82%,27.75,.45 cal,1.077,15860,Type A,Pistol,No
+wpn_colt1911_n,Colt M1911,60,71.91,55,230,7,300,270,82%,27.75,.45 cal,1.075,8560,Type A,Pistol,No
+wpn_cz52,CZ 52,61.36,70.36,45,305,8,400,420,77%,28.12,7.62x25mm,0.95,7270,Type A,Pistol,No
+wpn_cz75,CZ-75,73.36,72.55,46,258,16,400,375,84%,30.12,9x19mm,1.12,8750,Type A,Pistol,No
+wpn_cz75_auto,CZ-75 Automatic,58.64,72.55,46,1000,20,400,375,84%,35.25,9x19mm,1.12,11650,Type A,Pistol,No
+wpn_desert_eagle,Desert Eagle,58,70.09,60,110,9,500,440,77%,31,.357 cal,1.897,19680,Type A,Pistol,Yes
+wpn_desert_eagle_steppe,"Desert Eagle ""Steppe Eagle""",61.36,70.09,60,110,9,500,440,79%,31,.357 cal,1.925,25880,Type A,Pistol,No
+wpn_desert_eagle_modern,"Desert Eagle ""Steppe Eagle""",61.36,70.09,60,110,9,500,440,79%,28,.357 cal,1.925,25880,Type A,Pistol,No
+wpn_desert_eagle_nimble,"Desert Eagle ""Steppe Eagle""",61.36,70.09,60,110,9,500,440,79%,28.5,.357 cal,1.925,25880,Type A,Pistol,Yes
+wpn_dvl10,DVL-10 M2 Urbana,95.64,38.64,100,30,10,1200,1150,62%,25.5,7.62x51mm,6,95580,Type D,Sniper,Yes
+wpn_dvl10_m1,DVL-10 M1 Saboteur,95.64,38.64,85,30,10,600,400,62%,25.5,.338 Federal,5.7,99580,Type D,Sniper,Yes
+wpn_fal,FN FAL,86,56.91,76,675,20,1000,840,85%,27.12,7.62x51mm,4.45,31300,Type D,Rifle,No
+wpn_fal_aus,SA-58 AUS,86,56.91,100,675,20,1000,840,85%,27.12,7.62x51mm,4.3,31300,Type D,Rifle,Yes
+wpn_fal_aus_kit_aus_tri,SA-58 AUS Scout,86,56.91,76,675,20,1000,840,85%,40.88,7.62x51mm,4.455,31300,Type D,Rifle,Yes
+wpn_fal_aus_kit_sa5x_spec,SA-58 AUS Defender,86,56.91,76,675,20,1000,840,85%,40.88,7.62x51mm,4.875,31300,Type D,Rifle,Yes
+wpn_fal_aus_kit_fal_leup,SA-58 AUS Marauder,86,56.91,76,675,20,1000,840,85%,40.88,7.62x51mm,4.785,31300,Type D,Rifle,Yes
+wpn_fal_sa58_osw,SA-58 OSW,86,56.91,100,675,30,1000,840,85%,29.25,7.62x51mm,3.8,56380,Type D,Rifle,Yes
+wpn_famas3,FAMAS F1,79.36,46.45,50,950,30,1000,920,90%,79.25,5.56x45mm,3.8,44900,Type C,Rifle,No
+wpn_fn2000,FN F2000,84.36,47.73,51,850,30,1000,920,92%,87.75,5.56x45mm,3.8,45880,Type C,Rifle,No
+wpn_fn2000_camo,FN F2000,86.09,47.73,51,860,30,1000,920,92%,87.75,5.56x45mm,3.8,53650,Type C,Rifle,No
+wpn_fn2000_custom,FN F2000,85.36,47.73,51,875,30,1000,920,93%,87.75,5.56x45mm,3.8,49350,Type C,Rifle,No
+wpn_fn2000_nimble,"FN F2000 ""Competitor""",80.64,47.73,51,895,30,1000,920,94%,75.25,5.56x45mm,3.8,48550,Type C,Rifle,Yes
+wpn_fn57,FN Five-seveN,74.64,71.36,50,400,20,600,645,84%,32.5,5.7x28mm,0.61,15280,Type A,Pistol,Yes
+wpn_fnc,FN FNC,86,49.55,50,650,30,1000,910,92%,79,5.56x45mm,4.06,27000,Type C,Rifle,No
+wpn_fnp45,FNP-45,73.36,71.36,55,253,15,300,290,84%,30.75,.45 cal,0.941,14860,Type A,Pistol,Yes
+wpn_fnp45_custom,FNP-45,74.64,71.36,55,268,15,300,290,85%,30.75,.45 cal,0.941,17550,Type A,Pistol,No
+wpn_fnx45,FNX-45,71.36,71.36,55,260,15,300,290,85%,31.5,.45 cal,1.3,15880,Type A,Pistol,Yes
+wpn_fnx45_alt,FNX-45,69.36,71.36,55,250,15,300,290,84%,31.5,.45 cal,1.3,12850,Type A,Pistol,Yes
+wpn_fnx45_custom,FNX-45,73.36,71.36,55,270,15,300,290,84%,31.5,.45 cal,1.3,18650,Type A,Pistol,Yes
+wpn_fort,Fort-12,63.36,73.18,45,240,12,300,290,80%,44.25,9x18mm,0.83,5660,Type A,Pistol,Yes
+wpn_fort17,Fort-17,60,73.18,45,350,13,300,290,86%,38.5,9x18mm,0.68,7860,Type A,Pistol,No
+wpn_fort_snag,Fort-21,80.64,73.18,46,370,16,400,362,86%,44.5,9x19mm,1.06,13720,Type A,Pistol,No
+wpn_fort500,Fort-500,64.64,56.91,79,65,6,300,330,68%,25.62,12x76ga,4.3,17700,Type B,Shotgun,No
+wpn_g36,G36,82.64,38.91,50,750,30,1000,915,92%,77,5.56x45mm,3.77,48850,Type C,Rifle,No
+wpn_g36_camo,G36K,83.36,40.91,50,750,30,1000,915,92%,76.5,5.56x45mm,3.42,43850,Type C,Rifle,No
+wpn_g36k,G36C,80.64,44.73,50,750,30,1000,915,92%,76,5.56x45mm,2.89,39857,Type C,Rifle,No
+wpn_g36_nimble,"G36 ""FEAR""",82,42.55,50,800,30,1000,915,92%,52.88,5.56x45mm,3,66919,Type C,Rifle,No
+wpn_g36c_rwap,G36C,83.36,41.09,50,700,30,1000,910,91%,64.38,5.56x45mm,4.1,43580,Type C,Rifle,No
+wpn_g36ka4_rwap,G36K,83.36,41.09,50,700,30,1000,910,91%,67,5.56x45mm,3.77,43850,Type C,Rifle,Yes
+wpn_g36k_rwap,G36K,85.91,41.09,50,700,30,1000,910,91%,64.38,5.56x45mm,4.1,51980,Type C,Rifle,No
+wpn_g36nimble_rwap,"G36C ""Merc""",85.91,41.09,50,800,30,1000,910,91%,67,5.56x45mm,4.1,51980,Type C,Rifle,Yes
+wpn_g36v_rwap,G36,83.36,41.09,50,700,30,1000,910,91%,67,5.56x45mm,4,48850,Type C,Rifle,Yes
+wpn_g3sg1,G3SG1,82.64,34.45,75,500,20,1000,820,80%,38.88,7.62x51mm,4.7,43980,Type D,Rifle,No
+wpn_g3,G3A3,80.64,34.45,58,600,20,1000,798,91%,36.62,7.62x51mm,4.63,39880,Type D,Rifle,No
+wpn_g43,Gewehr 43,90.64,31.36,81,70,10,1000,740,80%,25.38,7.92x33mm Mauser,4.33,23980,Type D,Sniper,No
+wpn_galil,Galil AR,87,33.82,76,630,25,1000,835,91%,36.62,7.62x51mm,3.95,38580,Type D,Rifle,No
+wpn_galil_custom,Galil AR,87.36,33.82,76,684,25,1000,835,92%,36.62,7.62x51mm,3.95,41480,Type D,Rifle,No
+wpn_galil_modern,Galil AR,88,33.82,76,645,25,1000,835,92%,36.62,7.62x51mm,3.95,43680,Type D,Rifle,No
+wpn_ace21,Galil ACE-21,80,33.82,48,700,35,1000,710,91%,55.25,5.56x45mm,2.8,31580,Type C,Rifle,No
+wpn_gauss,Gauss Rifle,99.91,16,100,30,10,1000,15000,64%,400,Gauss Ammo,7.768,185860,Type D,Sniper,Yes
+pri_a17_gauss_rifle,Unidentified Weapon,99.91,16,550,30,10,2000,100000,100%,216.38,Gauss Ammo,7.768,185860,Type D,Sniper,No
+wpn_glock,Glock 19,77.36,65.82,46,270,17,400,360,84%,32.5,9x19mm,0.625,10960,Type A,Pistol,Yes
+wpn_glock_custom,HS2000,80,65.82,46,280,16,400,360,84%,32.5,9x19mm,0.625,19680,Type A,Pistol,Yes
+wpn_glock_modern,"Glock 19 ""Hornet""",76.64,65.82,46,1200,40,400,360,95%,32.5,9x19mm,0.625,15680,Type A,Pistol,Yes
+wpn_glock17,Glock 17,77.36,65.82,46,270,17,400,360,84%,32.5,9x19mm,0.625,10960,Type A,Pistol,No
+wpn_glock17_m1,"Glock 17 ""Bruder""",77.36,65.82,46,500,17,400,360,84%,42.62,9x19mm,0.7,16960,Type A,Pistol,No
+wpn_mp443,MP-443 Grach,74.64,72.55,46,293,18,400,370,85%,32.5,9x19mm,0.95,11580,Type A,Pistol,Yes
+wpn_groza,OC-14 Groza,75.36,71.36,62,700,30,600,500,91%,70.5,9x39mm,4,36860,Type D,Rifle,Yes
+wpn_groza_nimble,"OTs-14 Groza ""Storm""",80,39.73,50,750,60,900,720,92%,103.38,5.45x39mm,4.1,38580,Type D,Rifle,Yes
+wpn_gsh18,Gsh-18,72.64,65.82,46,280,18,400,370,83%,32.5,9x19mm,0.58,9680,Type A,Pistol,Yes
+wpn_gsh18_custom,Gsh-18,74.64,65.82,46,305,18,400,370,82%,32.5,9x19mm,0.58,11580,Type A,Pistol,Yes
+wpn_hk416,HK416,84,47.73,49,850,30,1000,880,92%,79.25,5.56x45mm,3.74,49580,Type C,Rifle,No
+wpn_hk417,HK417,86.64,56.91,76,600,20,500,817,90%,31.75,7.62x51mm,4.2,35000,Type C,Rifle,No
+wpn_howa20,Howa Type 20,84,47.73,51,900,30,1000,880,92%,100.12,5.56x45mm,4.3,135680,Type D,Rifle,Yes
+wpn_hpsa,Browning Hi-Power,64,71.73,46,265,13,400,360,78%,37.75,9x19mm,0.97,8650,Type A,Pistol,Yes
+wpn_hpsa_alt,Browning Hi-Power,66.64,71.73,46,290,13,400,360,79%,32.5,9x19mm,0.97,9960,Type A,Pistol,No
+wpn_ithacam37,Ithaca M37 Riot,60,54.09,79,60,4,300,330,77%,26.88,12x76ga,3.3,18340,Type B,Shotgun,No
+wpn_ithacam37_trench,Ithaca M37 Trenchgun,52.64,55.09,79,120,5,320,350,79%,25.88,12x76ga,3.33,25200,Type B,Shotgun,Yes
+wpn_ithacam37_mag,Ithaca M37 Defense,60,56.45,79,80,7,320,350,80%,25.62,12x76ga,3.78,21660,Type B,Shotgun,Yes
+wpn_ithacam37_stakeout,Ithaca M37 Stakeout,24,55.36,79,80,7,220,300,80%,25.25,12x76ga,2.6,13890,Type B,Shotgun,Yes
+wpn_ithacam37_sawnoff,Ithaca M37 (Sawn-off),55.36,37.82,79,80,7,220,300,75%,26.25,12x76ga,2.76,14510,Type B,Shotgun,No
+wpn_k98,Karabiner 98k,91.36,32,105,28,5,1100,760,95%,25.38,7.92x33mm Mauser,3.7,22590,Type B,Sniper,Yes
+wpn_k98_mauser_kit,Karabiner 98k Forester mk.2,97.64,32,115,30,5,1100,950,70%,31.25,7.92x33mm Mauser,4.2,32590,Type B,Sniper,No
+wpn_k98_mod,Mauser 98k Forester mk.1,95.82,32,105,30,5,1500,1250,70%,25.38,7.92x33mm Mauser,4.1,32590,Type B,Sniper,Yes
+wpn_k98_mod_silen98,Karabiner 98k Forester mk.2,97.64,32,115,30,5,1500,1450,70%,25.5,7.92x33mm Mauser,4.2,32590,Type B,Sniper,No
+wpn_kiparis,OTs-02 Kiparis,60.64,70.73,46,850,30,300,330,88%,99.88,9x18mm,1.6,16880,Type A,SMG,Yes
+wpn_korth,Korth Custom 4,80.64,65.82,66,400,7,400,360,84%,32.62,.45 cal,1.14,48960,Type A,Pistol,Yes
+wpn_korth_custom,Korth Custom 6,80.64,65.82,68,400,7,400,360,84%,45.62,.45 cal,1.42,78960,Type A,Pistol,Yes
+wpn_kriss_vector,KRISS Vector,70,52.27,55,1100,30,300,320,98%,136,.45 cal,2.78,122520,Type D,SMG,Yes
+wpn_ks23,KS-23,63.36,45.36,50,80,4,200,200,74%,25.12,23x75mm,3.85,32960,Type B,Shotgun,Yes
+wpn_ks23_23_up,KS-23 Shortie,63.36,45.36,48,80,4,200,200,74%,25.12,23x75mm,3.53,32960,Type B,Shotgun,Yes
+wpn_ks23_kaban,KS-23M Drozd,63.36,45.36,48,80,4,200,200,74%,25.12,23x75mm,3.5,38950,Type B,Shotgun,Yes
+wpn_ks23_kaban_kab_up,"KS-23M Drozd ""Boar""",63.36,45.36,48,80,4,200,200,74%,25.12,23x75mm,3.6,38950,Type B,Shotgun,Yes
+wpn_ks23_ecolog,KS-23 Eco,63.36,45.36,10,60,1,150,200,74%,25.12,23x75mm Ecolog,4,32960,Type B,Shotgun,No
+wpn_l85,L85A1,85.64,43.36,51,680,30,1000,930,92%,60,5.56x45mm,3.88,33860,Type C,Rifle,No
+wpn_l85_alt,L85A1,86.64,43.36,51,700,30,1000,930,92%,60,5.56x45mm,3.88,35680,Type C,Rifle,No
+wpn_l85_custom,L85A1,89,43.36,51,693,30,1000,930,91%,60,5.56x45mm,3.88,40580,Type C,Rifle,No
+wpn_l85_modern,L85A1,87.64,43.36,51,730,30,1000,930,92%,60,5.56x45mm,3.88,38980,Type C,Rifle,No
+wpn_l85a2,L85A2,88,46.09,51,635,30,1000,930,91%,60,5.56x45mm,4.13,35860,Type C,Rifle,No
+wpn_l85a2_alt,L85A2,88.45,46.09,51,665,30,1000,930,91%,60,5.56x45mm,4.13,36980,Type C,Rifle,No
+wpn_l85a2_custom,L85A2,91,46.09,51,620,30,1000,930,90%,60,5.56x45mm,4.13,41560,Type C,Rifle,No
+wpn_l85a2_modern,L85A2,89.36,46.09,51,650,30,1000,930,91%,60,5.56x45mm,4.13,38580,Type C,Rifle,No
+wpn_l85_m1,L85A2,85.64,43.36,51,680,30,1000,970,92%,41.25,5.56x45mm,3.5,33860,Type C,Rifle,No
+wpn_l85_m2,L85A2,85.64,43.36,51,680,30,1000,970,92%,44,5.56x45mm,3.5,53860,Type C,Rifle,Yes
+wpn_l85_m3,"L85A2 ""Tactical""",85.64,43.36,51,680,30,1000,970,92%,52.5,5.56x45mm,3.8,78330,Type C,Rifle,No
+wpn_l96a1,L96A1,95.64,38.64,100,30,10,1200,845,62%,31.38,7.62x51mm,7.2,65880,Type C,Sniper,No
+wpn_l96a1m,AWSM ,97.09,35.64,120,30,5,1200,900,60%,25.38,.338 Lapua Magnum,7.2,76580,Type D,Sniper,Yes
+wpn_lr300,LR-300ML,78.36,56.73,49,930,30,1000,832,91%,60,5.56x45mm,3.1,26480,Type C,Rifle,No
+wpn_lr300_camo,LR-300ML,82.64,56.73,49,920,30,1000,832,92%,60,5.56x45mm,3.1,36880,Type C,Rifle,No
+wpn_lr300_custom,LR-300ML,81,56.73,49,945,30,1000,832,92%,60,5.56x45mm,3.1,33550,Type C,Rifle,No
+wpn_m16,M16A4,86,34.45,50,670,30,1000,910,92%,60.5,5.56x45mm,3.09,35690,Type C,Rifle,No
+wpn_m16a2,M16A2,74,34.45,50,700,30,1000,910,91%,88.5,5.56x45mm,3.51,35880,Type C,Rifle,No
+wpn_thompson_m1a1,Thompson M1A1,60.64,70.73,56,650,30,300,330,90%,55.25,.45 cal,4.7,21880,Type A,SMG,Yes
+wpn_thompson_1921,Thompson Model 1921,60.64,70.73,46,900,50,300,330,88%,71.25,.45 cal,6.1,40590,Type A,SMG,Yes
+wpn_m24,M24 SWS,96.36,23.36,135,20,5,1500,845,50%,25.38,.338 Lapua Magnum,5.4,76680,Type D,Sniper,No
+wpn_m249,M249 SAW,76.64,42.82,51,870,100,1000,920,92%,85.62,5.56x45mm,7.68,56580,Type D,Rifle,Yes
+wpn_m4,M4,81.36,57.45,49,750,30,1000,880,92%,79.25,5.56x45mm,3.02,35560,Type C,Rifle,No
+wpn_m4a1,M4A1,79.36,57.45,49,770,30,1000,880,92%,79.25,5.56x45mm,2.52,29560,Type C,Rifle,No
+wpn_m4a1_camo,M4A1,82.64,57.45,49,795,30,1000,880,92%,79.25,5.56x45mm,3.1,38680,Type C,Rifle,No
+wpn_m4a1_custom,M4A1,81.36,57.45,49,820,30,1000,880,93%,79.25,5.56x45mm,3.1,35980,Type C,Rifle,No
+wpn_m4a1_freedom,M4A1,80,57.45,49,850,30,1000,880,93%,79.25,5.56x45mm,3.1,33350,Type C,Rifle,No
+wpn_m4a1_siber,M4A1,84,47.73,50,770,30,1000,880,92%,53.88,5.56x45mm,2.6,29230,Type C,Rifle,Yes
+wpn_m4_butcher,"M4A1 ""Butcher""",84,47.73,50,950,60,800,760,92%,67,5.56x45mm,2.95,91640,Type C,Rifle,Yes
+wpn_m4_tac,"M4A1 ""Protector""",84,47.73,49,770,40,1000,880,92%,67,5.56x45mm,3,61230,Type C,Rifle,Yes
+wpn_m60,M60,83.36,56.91,77,500,100,1000,853,89%,36,7.62x51mm,10.5,67000,Type D,Rifle,No
+wpn_m79,M79,49.36,34.73,80,200,1,500,295,10%,31,M203 grenade,2.7,26840,Type D,Explosive,No
+wpn_m82,Barrett M82,93.36,28.64,300,100,10,1800,853,75%,25.38,12.7x55mm,12.07,50000,Type D,Sniper,No
+wpn_m98b,Barrett M98B,97.09,23.36,135,20,10,1500,945,54%,25.38,.338 Lapua Magnum,7.5,88980,Type D,Sniper,No
+wpn_mk14,Mk 14 EBR,86,56.91,76,725,20,1000,845,91%,35,7.62x51mm,5.1,40000,Type D,Rifle,No
+wpn_mosin,Mosin-Nagant,92,31.36,90,25,5,1100,845,56%,32.25,7.62x54mm,3.8,21560,Type B,Sniper,Yes
+wpn_mossberg590,Mossberg 590A1,66,50.45,79,75,8,300,330,77%,27,12x76ga,3.3,24850,Type B,Shotgun,Yes
+wpn_mp133,MP-133,69.73,45.36,79,80,5,300,340,74%,25.5,12x76ga,3,19960,Type B,Shotgun,Yes
+wpn_mp153,MP-153,66.64,46.73,80,200,5,300,370,76%,25.75,12x76ga,3.5,30580,Type B,Shotgun,Yes
+wpn_mp153_m1,"MP-153 ""Carabineer""",66.64,46.73,80,200,6,70,370,76%,25.5,12x76ga,3.5,40580,Type C,Shotgun,Yes
+wpn_mp412,MP-412 Rex,89,65.18,60,160,6,500,430,76%,28.12,.357 cal,0.9,14680,Type A,Pistol,Yes
+wpn_mp5,MP5A3,62,70.73,47,800,30,400,402,91%,123.88,9x19mm,3.1,20380,Type A,SMG,Yes
+wpn_mp5_alt,MP5A3,70,70.73,47,813,30,400,402,92%,153.25,9x19mm,3.1,22350,Type A,SMG,No
+wpn_mp5_custom,MP5A3,71.36,70.73,47,830,30,400,402,93%,153.25,9x19mm,3.1,23680,Type A,SMG,Yes
+wpn_mp5_nimble,"MP5A3 ""Frasier""",70.64,70.73,56,730,30,400,284,92%,97.5,.45 cal,3,28950,Type C,SMG,Yes
+wpn_mp5sd,MP5SD6,66.64,70.73,56,730,30,400,284,92%,74.5,9x19mm,2.97,21880,Type A,SMG,Yes
+wpn_mp5sd_custom,MP5SD6,69.36,70.73,56,835,30,400,284,93%,107.38,9x19mm,2.97,24560,Type A,SMG,Yes
+wpn_mp5sd_new,MP5SD6,67.36,70.73,56,820,30,400,284,92%,107.38,9x19mm,2.97,22650,Type A,SMG,No
+wpn_mp7,MP7,84,66.18,50,950,40,400,400,87%,65.62,9x19mm,2.1,23300,Type C,SMG,Yes
+wpn_oc33,OTs-33 Pernach,67.36,71,45,800,27,300,290,84%,42.5,9x18mm,1.15,8860,Type A,Pistol,Yes
+wpn_p90,FN P90,76.64,52.27,50,900,50,800,720,91%,107.75,5.7x28mm,2.78,39880,Type C,SMG,No
+wpn_p90gamma,FN P90,76.64,52.27,46,900,50,800,720,91%,107.75,5.7x28mm,2.78,39880,Type C,SMG,Yes
+wpn_p90_gs,FN P90,76.64,52.27,46,900,50,800,720,91%,71.25,5.7x28mm,2.78,39880,Type C,SMG,Yes
+wpn_pb,PB,60.64,71.91,45,305,8,300,290,83%,37.62,9x18mm,1.15,6580,Type A,Pistol,Yes
+wpn_pb_custom,PB,62.64,71.91,45,325,8,300,290,84%,32.75,9x18mm,1.15,8190,Type A,Pistol,Yes
+wpn_pb_bas,PB,60.64,71.91,45,305,8,300,290,83%,32.75,9x18mm,1.15,6580,Type A,Pistol,No
+wpn_pb_bas_custom,PB,62.64,71.91,45,325,8,300,290,84%,42.38,9x18mm,1.15,8190,Type A,Pistol,No
+wpn_pkm,PKM,77.36,40.27,77,650,100,1000,825,92%,45,7.62x54mm (PKM),7.5,53850,Type D,Rifle,No
+wpn_pkm_zulus,"PKM ""Zulu""",77.36,40.27,77,680,100,1000,825,91%,45,7.62x54mm (PKM),7.6,58960,Type D,Rifle,No
+wpn_pkp,PKP Pecheneg,77.36,40.27,77,680,100,1000,825,92%,54.12,7.62x54mm (PKM),8.2,61880,Type D,Rifle,No
+wpn_pkm_siber,PKM,77.36,40.27,77,650,100,1000,825,92%,45,7.62x54mm (PKM),7.5,53850,Type D,Rifle,Yes
+wpn_pkm_zenit_siber,"PKM ""Zenit""",77.36,40.27,77,750,100,1000,825,92%,54.12,7.62x54mm (PKM),8.4,83850,Type D,Rifle,Yes
+wpn_pkp_siber,PKP Pecheneg,77.36,40.27,77,650,100,1000,825,92%,54.12,7.62x54mm (PKM),8.7,63850,Type D,Rifle,Yes
+wpn_pl15,Lebedev PL-15,80.64,65.82,46,400,16,400,360,84%,46.62,9x19mm,0.8,26960,Type A,Pistol,No
+wpn_pl15_pl15_scolaz,"Lebedev PL-15 ""Bearcat""",82,65.82,46,400,16,400,360,84%,46.62,9x19mm,0.94,26960,Type A,Pistol,No
+wpn_pl15_tan,Lebedev PL-15,80.64,65.82,46,400,16,400,360,84%,46.62,9x19mm,0.8,26960,Type A,Pistol,Yes
+wpn_pl15_tan_pl15_scolaz,"Lebedev PL-15 ""Bearcat""",82,65.82,46,400,16,400,360,84%,46.62,9x19mm,0.94,26960,Type A,Pistol,Yes
+wpn_pm,Makarov PM,58.64,73.18,45,315,8,300,290,84%,42.62,9x18mm,0.73,4890,Type A,Pistol,Yes
+wpn_pm_actor,"Makarov PM ""Ceremonial""",62,73.18,45,305,8,300,290,85%,42.62,9x18mm,0.73,7130,Type A,Pistol,No
+wpn_pm_custom,Makarov PM,60.64,73.18,45,340,8,300,290,85%,42.62,9x18mm,0.73,6890,Type A,Pistol,Yes
+wpn_pmm,Makarov PMM,62.64,73.18,45,245,12,300,290,85%,42.62,9x18mm,0.76,7580,Type A,Pistol,Yes
+wpn_pm_bas,Makarov PM,58.64,73.18,45,315,8,300,290,84%,42.62,9x18mm,0.73,4890,Type A,Pistol,No
+wpn_pm_bas_actor,"Makarov PM ""Mythic""",62,73.18,45,405,8,300,290,85%,42.62,9x18mm,0.73,7130,Type A,Pistol,No
+wpn_pm_bas_custom,Makarov PM Custom,60.64,73.18,45,340,8,300,290,85%,42.62,9x18mm,0.73,6890,Type A,Pistol,No
+wpn_pmm_bas,Makarov PMM,62.64,73.18,45,245,12,300,290,85%,42.62,9x18mm,0.76,7580,Type A,Pistol,No
+wpn_pp2000,PP-2000,64.64,71.36,47,600,45,400,400,88%,94,9x19mm,1.66,19650,Type A,SMG,Yes
+wpn_ppsh41,PPSh-41,56.64,56.55,46,880,71,500,480,94%,70.88,7.62x25mm,3.64,15840,Type A,Rifle,Yes
+wpn_ppsh41_rednew,PPSh-41,64.64,56.55,46,880,71,500,480,93%,70.88,7.62x25mm,3.6,20580,Type A,Rifle,No
+wpn_ppsh41_woodnew,PPSh-41,61.36,56.55,46,900,71,500,480,94%,70.88,7.62x25mm,3.65,18180,Type A,Rifle,No
+wpn_protecta,Armsel Protecta,64.64,56,78,155,12,300,320,79%,27.5,12x76ga,4.2,28550,Type B,Shotgun,Yes
+wpn_protecta_aim,Armsel Protecta Custom,64.64,56,78,150,12,300,320,78%,25.62,12x76ga,4.2,33780,Type B,Shotgun,Yes
+wpn_protecta_camo,Armsel Protecta,60,56,78,150,12,300,320,78%,25.62,12x76ga,4.2,33850,Type B,Shotgun,No
+wpn_protecta_custom,Armsel Protecta,58.64,56,78,168,12,300,320,79%,25.62,12x76ga,4.2,30650,Type B,Shotgun,Yes
+wpn_protecta_nimble,"Armsel Protecta ""Tank""",58,56,78,191,12,300,320,78%,25.62,12x76ga,4.2,32680,Type B,Shotgun,Yes
+wpn_raptr,RAPTR,63.36,46.73,80,225,20,300,325,80%,33.88,12x76ga,4.3,125660,Type D,Shotgun,Yes
+wpn_remington700,Remington 700,96.64,26.18,100,38,5,1200,845,54%,25.5,7.62x51mm,3.96,33000,Type C,Sniper,Yes
+wpn_remington700_archangel,"Remington 700 ""Archangel""",97.36,26.18,100,45,20,1200,845,54%,25.62,7.62x51mm,3.85,33000,Type C,Sniper,Yes
+wpn_remington700_magpul_pro,"Remington 700 ""Magpul PRO""",98,26.18,100,50,12,1200,845,54%,25.62,7.62x51mm,3.75,33000,Type C,Sniper,Yes
+wpn_remington700_mod_x_gen3,"Remington 700 ""MOD X Gen.3""",98.64,26.18,100,60,12,1200,845,54%,25.75,7.62x51mm,3.7,33000,Type C,Sniper,Yes
+wpn_remington700_lapua700,"Remington 700 ""Deer Hunter""",98.73,26.18,120,40,5,1200,845,54%,25.5,.338 Lapua Magnum,3.95,33000,Type D,Sniper,Yes
+wpn_remington870,Remington 870,69.73,56.91,79,75,8,300,330,68%,25.62,12x76ga,3.4,23600,Type B,Shotgun,Yes
+wpn_rg-6,RG-6 Grenade Launcher,49.36,34.73,75,115,6,500,76,10%,28.5,VOG-25 grenade,6.2,38850,Type B,Explosive,No
+wpn_rpd,RPD,74.64,39.73,59,600,100,900,730,92%,54.5,7.62x39mm,7.4,24580,Type D,Rifle,Yes
+wpn_rpg7,RPG-7,78,30.18,300,200,1,1000,121,10%,30.62,OG-7V warhead,6.3,29800,Type D,Explosive,Yes
+wpn_rpg7_missile,,78,30.18,300,200,1,1000,121,10%,30.62,OG-7V warhead,0.2,200,Type D,Explosive,No
+wpn_rpk,RPK,78,39.73,59,600,40,900,740,92%,52.62,7.62x39mm,4.8,35860,Type D,Rifle,Yes
+wpn_rpk74,RPK-74,81.36,40.27,51,650,45,1000,910,92%,54.88,5.45x39mm,4.8,38980,Type C,Rifle,No
+wpn_rpk74_16,RPK-16 LMG,78,39.73,50,750,60,900,740,92%,54.5,5.45x39mm,3.872,65860,Type C,Rifle,Yes
+wpn_m4_ru556,Ruger SR-556,84,47.73,51,700,20,1000,880,92%,64.38,5.56x45mm,2.95,89580,Type C,Rifle,Yes
+wpn_saiga12s,Saiga-12,69.36,58.64,68,180,12,300,325,80%,28.75,12x76ga,3.81,31680,Type C,Shotgun,No
+wpn_saiga12s_isg,KS-12,80,42.45,80,400,12,200,300,92%,30.5,12x76ga,3.2,88680,Type D,Shotgun,Yes
+wpn_saiga12s_m1,"Saiga-12 ""Nerd""",69.36,43.91,79,250,6,300,325,80%,25.62,12x76ga,3.81,48680,Type C,Shotgun,Yes
+wpn_saiga12s_m2,"Saiga-12 ""Merc""",69.36,43.91,79,250,8,300,325,80%,25.88,12x76ga,3.96,58680,Type C,Shotgun,Yes
+wpn_scar,FN SCAR-H,88,35.09,75,650,20,1000,802,90%,36.62,7.62x51mm,3.6,55880,Type D,Rifle,No
+wpn_scar_custom,FN SCAR-H,91.36,35.09,75,640,20,1000,802,90%,36.62,7.62x51mm,3.6,63580,Type D,Rifle,No
+wpn_scar_new,FN SCAR-H,89.36,35.09,75,663,20,1000,802,91%,36.62,7.62x51mm,3.6,58880,Type D,Rifle,No
+wpn_scar_siber,FN SCAR-H,88,35.09,100,650,20,1000,802,90%,27.12,7.62x51mm,3.6,55880,Type D,Rifle,Yes
+wpn_scar_siber_black,"FN SCAR-H ""Black""",88,35.09,100,650,20,1000,802,90%,27.12,7.62x51mm,3.6,75880,Type D,Rifle,No
+wpn_scar_siber_m1,"FN SCAR-H ""Tactical""",88,35.09,100,650,20,1000,802,90%,29.25,7.62x51mm,3.6,85880,Type D,Rifle,Yes
+wpn_scar_siber_m1_black,"FN SCAR-H ""Tactical Black""",88,35.09,100,650,20,1000,802,90%,29.25,7.62x51mm,3.68,95880,Type D,Rifle,No
+wpn_scar_siber_m2,"FN SCAR-H ""Expert Operator""",88,35.09,100,650,20,1000,802,90%,39,7.62x51mm,4,167430,Type D,Rifle,Yes
+wpn_scar_siber_m2_custom,"FN SCAR-H ""Specialist Operator""",88,35.09,100,650,20,1000,802,90%,39,7.62x51mm,4.7,55880,Type D,Rifle,No
+wpn_sig220,SIG P220,64,71,55,225,7,300,340,84%,30.75,.45 cal,1.13,12980,Type A,Pistol,No
+wpn_sig220_custom,SIG P220,66.64,71,55,260,7,300,340,85%,30.75,.45 cal,1.13,15880,Type A,Pistol,No
+wpn_sig220_nimble,"SIG P220 ""Alpine""",68,71,55,244,7,300,340,86%,30.75,.45 cal,1.13,18560,Type A,Pistol,No
+wpn_sig220_n,SIG P220,64,71,55,225,7,300,340,84%,30.75,.45 cal,1.13,12980,Type A,Pistol,Yes
+wpn_sig220_n_upg220,"SIG P220 ""XXX""",66.64,71,55,300,12,300,340,85%,37.75,.45 cal,0.86,12980,Type A,Pistol,Yes
+wpn_sig220_n_u2p2g0r,"SIG P220 ""Stalker""",66.64,71,45,300,19,300,340,85%,38.38,9x19mm,0.86,12980,Type A,Pistol,Yes
+wpn_sig226,SIG P226R,64,71,45,380,15,300,340,84%,30.75,9x19mm,0.802,14980,Type A,Pistol,Yes
+wpn_sig226_226sig_kit,SIG P226R Custom,64,71,45,380,15,300,340,84%,37.75,9x19mm,0.86,14980,Type A,Pistol,Yes
+wpn_sig550,SIG SG550,83.36,41.09,50,700,30,1000,910,91%,53.88,5.56x45mm,4.1,43580,Type C,Rifle,Yes
+wpn_sig550_camo,SIG SG 550,86.36,41.09,50,720,30,1000,910,90%,53.88,5.56x45mm,4.1,50860,Type C,Rifle,No
+wpn_sig550_custom,SIG SG550 (custom),85.09,41.09,50,750,30,1000,910,91%,60,5.56x45mm,4.1,45860,Type C,Rifle,Yes
+wpn_sig550_luckygun,SIG SG550 Arrow,85.91,41.09,50,800,30,1000,910,91%,67,5.56x45mm,4.1,51980,Type C,Rifle,Yes
+wpn_sig550_sniper,SIG SG 550-1 Sniper,87.91,41.09,51,200,20,1000,980,64%,38,5.56x45mm,7.02,49560,Type C,Sniper,No
+wpn_sig552,SIG SG552 Commando,76.64,50.64,48,780,30,900,730,91%,53.88,5.56x45mm,3.2,32580,Type C,Rifle,Yes
+wpn_sks,SKS,86.36,31.36,59,200,10,900,735,87%,27.25,7.62x39mm,3.75,19580,Type D,Sniper,No
+wpn_sks_modern,SKS,88.27,31.36,59,245,10,900,735,86%,27.25,7.62x39mm,3.75,22960,Type D,Sniper,No
+wpn_sks_b,SKS,86.36,31.36,58,350,10,900,700,87%,33,7.62x39mm,3.75,19580,Type B,Sniper,Yes
+wpn_sks_molot,SKS Molot,86.36,31.36,59,270,20,900,735,87%,25.88,7.62x39mm,3.6,19580,Type B,Sniper,Yes
+wpn_sks_tac,SKS Tactical,86.36,31.36,59,600,20,900,735,87%,25.88,7.62x39mm,3.7,25580,Type B,Sniper,Yes
+wpn_spas12,SPAS-12,68,46.73,79,250,8,300,340,78%,25.75,12x76ga,4.13,29390,Type B,Shotgun,Yes
+wpn_spas12_custom,SPAS-12 (custom),70,46.73,79,130,8,300,340,78%,25.75,12x76ga,4.13,32580,Type B,Shotgun,No
+wpn_spas12_nimble,SPAS-12 (modern),71.36,46.73,83,130,8,300,350,76%,25.75,12x76ga,4.13,34860,Type B,Shotgun,Yes
+wpn_sr1m,Serdyukov SR1M Gyurza,77.36,65.82,35,400,18,400,360,84%,37,9x21mm,0.895,26960,Type A,Pistol,Yes
+wpn_sr1m_sr1upgr1,Serdyukov SR1M Gyurza Custom,77.36,65.82,49,400,18,400,360,84%,37,9x21mm,0.995,26960,Type A,Pistol,Yes
+wpn_sr1m_gurza_up,Serdyukov SR1M Gyurza Custom,77.36,65.82,49,400,18,400,360,84%,37,9x21mm,1.09,26960,Type A,Pistol,Yes
+wpn_sr25,SR-25,84.64,47.73,100,700,20,1000,840,76%,62.38,7.62x51mm,4.31,50780,Type D,Sniper,Yes
+wpn_sr2_m1,SR-2M Veresk,84,66.18,35,900,30,400,400,92%,83.25,9x21mm,1.86,73300,Type C,SMG,Yes
+wpn_sr2_veresk,SR-2M Veresk,84,66.18,35,900,30,400,400,92%,72.38,9x21mm,1.65,50300,Type C,SMG,Yes
+wpn_sr2_veresk_sr2_upkit,"SR-2M Veresk ""Tactical""",84,66.18,49,900,30,400,400,92%,83.25,9x21mm,2.1,50300,Type C,SMG,Yes
+wpn_sv98,SV98,94.64,24.82,110,30,10,1200,860,52%,26.25,7.62x54mm,6.2,58580,Type C,Sniper,Yes
+wpn_sv98_custom,SV98,96,24.82,110,33,10,1200,860,60%,26.25,7.62x54mm,6.2,63680,Type C,Sniper,No
+wpn_svd,SVD,93.91,25.82,110,60,10,1100,820,60%,25.62,7.62x54mm,3.91,40550,Type D,Sniper,No
+wpn_svd_custom,SVD,94.64,25.82,110,65,10,1100,820,62%,25.62,7.62x54mm,3.91,45360,Type D,Sniper,No
+wpn_svd_nimble,"SVD ""Lynx""",95.27,25.82,82,140,20,1400,900,55%,25.62,7.62x54mm,5.143,55880,Type D,Sniper,No
+wpn_svds,SVDS,93.91,25.82,110,400,10,1100,820,60%,25.62,7.62x54mm,4.4,56164,Type D,Sniper,Yes
+wpn_svds_pmc,"SVDS ""Retribution""",93.91,25.82,110,550,10,1100,820,60%,25.62,7.62x54mm,4.8,140850,Type D,Sniper,Yes
+wpn_svd_m1,SVD,93.91,25.82,110,60,10,1100,820,60%,25.62,7.62x54mm,3.91,40550,Type D,Sniper,Yes
+wpn_svt40,SVT-40,93,31.36,77,150,10,1000,830,57%,25.5,7.62x54mm,3.8,24850,Type D,Sniper,No
+wpn_svt40_modern,SVT-40,93.64,31.36,77,135,10,1000,830,52%,25.5,7.62x54mm,3.8,26350,Type D,Sniper,No
+wpn_svu,OTs-03 SVU,93.91,27.36,110,70,10,1050,805,60%,25.88,7.62x54mm,3.81,43860,Type D,Sniper,Yes
+wpn_svu_alt,OTs-03 SVU,95.09,27.36,110,78,10,1050,805,55%,25.88,7.62x54mm,3.81,48850,Type D,Sniper,No
+wpn_svu_nimble,OTs-03A SVU-A,92.82,27.36,80,115,10,1050,805,65%,25.88,7.62x54mm,3.83,48580,Type D,Sniper,Yes
+wpn_toz106,TOZ-106,76.64,24.82,80,30,2,50,370,52%,25.62,20x70ga,2.5,5300,Type B,Shotgun,Yes
+wpn_toz106_m1,TOZ-106,76.64,24.82,80,30,4,50,370,52%,25.62,20x70ga,2.5,6300,Type B,Shotgun,Yes
+wpn_wincheaster1300,TOZ-194,62,50.45,79,75,7,300,340,72%,27,12x76ga,2.9,19580,Type B,Shotgun,Yes
+wpn_toz34,TOZ-34,76.64,41.18,80,1000,2,400,370,78%,25.38,12x76ga,3.2,14800,Type B,Shotgun,Yes
+wpn_toz34_bull,"TOZ-34 ""Bull""",80,41.18,100,200,2,500,450,78%,25.25,12x76ga,3.9,98950,Type B,Shotgun,No
+wpn_toz34_mark4_23,"TOZ-34 ""Chimera Hunter""",80,41.18,53,200,2,280,220,78%,25.38,23x75mm,3.9,98950,Type B,Shotgun,Yes
+wpn_toz34_custom,TOZ-34,71.36,41.18,53,1200,2,280,220,77%,25.38,12x76ga,3.2,16680,Type B,Shotgun,No
+wpn_toz34_decor,TOZ-34,73,41.18,53,1100,2,280,220,75%,25.38,12x76ga,3.2,18550,Type B,Shotgun,Yes
+wpn_toz34_obrez,TOZ-34 (Sawn-off),52.55,41.18,77,1200,2,300,300,77%,25.25,12x76ga,2.1,9860,Type B,Shotgun,Yes
+wpn_toz34_obrez_custom,TOZ-34 (Sawn-off),54.36,41.18,77,1200,2,300,300,75%,25.25,12x76ga,2.1,12690,Type B,Shotgun,No
+wpn_toz34_obrez_decor,TOZ-34 (Sawn-off),56.64,41.18,77,1100,2,300,300,73%,25.25,12x76ga,2.1,13880,Type B,Shotgun,No
+wpn_toz34_mark4,"TOZ-34 ""Bison""",76,41.18,82,800,2,300,390,72%,25.25,12x76ga,3.2,36860,Type B,Shotgun,No
+wpn_trg,Sako TRG-42,97.36,24.64,135,30,5,1500,841,55%,25.38,.338 Lapua Magnum,4.68,71880,Type D,Sniper,No
+wpn_tt33,TT-33,60,70.09,45,210,8,400,420,82%,29.62,7.62x25mm,0.854,9860,Type A,Pistol,Yes
+wpn_tt33_modern,TT-33,64.64,70.09,45,240,8,400,420,84%,29.62,7.62x25mm,0.854,12350,Type A,Pistol,Yes
+wpn_type63,Type 63,83.73,31.36,58,700,20,900,735,82%,27,7.62x39mm,3.864,17880,Type D,Rifle,No
+wpn_ump45,UMP45,73.36,70.64,56,600,25,300,273,91%,60.75,.45 cal,2.48,28980,Type C,SMG,No
+wpn_ump45_custom,UMP45,73.36,70.64,56,600,25,300,273,92%,63.38,.45 cal,2.48,33880,Type C,SMG,Yes
+wpn_usas12,USAS-12,63.36,46.73,78,360,20,300,325,80%,25.75,12x76ga,6.2,38660,Type B,Shotgun,No
+wpn_usp,USP45,71.36,71.36,55,240,12,300,260,84%,30.88,.45 cal,0.88,10960,Type A,Pistol,No
+wpn_usp_custom,USP45,74.64,71.36,55,273,12,300,260,85%,30.88,.45 cal,0.88,13580,Type A,Pistol,No
+wpn_usp_match,USP Match,73.36,72.55,55,260,15,300,260,85%,32.25,.45 cal,1.18,15360,Type A,Pistol,Yes
+wpn_usp_nimble,"USP Match ""Wolfhound""",75.36,72.55,47,280,15,300,260,86%,31.12,.45 cal,1.16,17690,Type A,Pistol,Yes
+wpn_usp_tac,"USP Match ""Overwatch""",73.36,72.55,45,640,22,300,260,85%,35.38,9x19mm,0.96,54600,Type A,Pistol,No
+wpn_val,AS Val,78,58.82,62,900,20,600,500,90%,97.38,9x39mm,2.5,38860,Type D,Rifle,Yes
+wpn_val_modern,AS Val,80,58.82,62,840,20,600,500,90%,97.38,9x39mm,2.5,41580,Type D,Rifle,No
+wpn_val_tac,AS Val,80,58.82,73,900,20,600,500,90%,97.38,9x39mm,2.5,48860,Type D,Rifle,No
+wpn_vepr,Vepr-12,68,45.73,78,240,12,300,325,82%,28.62,12x76ga,4.3,36980,Type C,Shotgun,No
+wpn_vihr,SR-3M Vikhr,78.64,58.82,70,900,30,600,500,90%,97.38,9x39mm,2,30580,Type D,Rifle,Yes
+wpn_vintorez,VSS Vintorez,86.64,58.82,62,800,10,600,500,82%,70.5,9x39mm,2.59,40580,Type D,Rifle,No
+wpn_vintorez_alt,VSS Vintorez,87.73,58.82,62,750,10,600,500,82%,77.75,9x39mm,2.59,41860,Type D,Rifle,No
+wpn_vintorez_nimble,"VSS Vintorez ""Tide""",89.36,58.82,64,774,10,600,500,80%,97.38,9x39mm,3.28,51850,Type D,Sniper,No
+wpn_vintorez_isg,RD-939,80,42.45,76,800,30,700,620,92%,85.88,9x39mm,3.1,230175,Type D,Rifle,Yes
+wpn_vintorez_m1,"VSS Vintorez ""Savant""",80,42.45,70,800,20,650,570,92%,97.38,9x39mm,3.3,70580,Type D,Rifle,No
+wpn_vintorez_m2,"VSS Vintorez ""Venal""",80,42.45,73,800,20,690,600,92%,115.88,9x39mm,3,90580,Type D,Rifle,No
+wpn_vintorez_n1,VSS Vintorez,86.64,58.82,68,800,10,600,500,82%,97.38,9x39mm,2.59,40580,Type D,Rifle,Yes
+wpn_vityaz,PP-19 Vityaz,64,69.82,47,800,30,400,390,91%,93.88,9x19mm,2.9,20880,Type A,SMG,Yes
+wpn_vsk94,VSK-94,83.64,58.82,62,700,20,600,500,82%,62.75,9x39mm,2.8,33960,Type D,Rifle,No
+wpn_vssk,VSSK Vykhlop,93.45,25.82,120,30,5,1000,750,51%,25.5,12.7x55mm,7.5,95680,Type D,Sniper,Yes
+wpn_vz61,Skorpion vz.68,57.36,70.73,46,850,20,400,370,88%,90.75,9x19mm,1.44,15680,Type A,SMG,Yes
+wpn_vz61_alt,Skorpion vz.68,56.64,70.73,46,865,20,400,320,88%,99.38,9x18mm,1.44,13960,Type A,SMG,Yes
+wpn_vz61_camo,Skorpion vz.68,62.64,70.73,46,880,20,400,320,89%,99.38,9x19mm,1.44,18960,Type A,SMG,No
+wpn_vz61_freedom,"Skorpion vz.68 ""Freedom""",59.36,70.73,46,913,20,400,320,90%,99.38,9x19mm,1.44,17980,Type A,SMG,No
+wpn_wa2000,Walther WA 2000,93.36,28.64,100,45,6,1200,840,45%,25.75,7.62x51mm,7.65,90000,Type D,Sniper,No
+wpn_walther,Walther P99,53.36,72.91,46,260,16,400,355,86%,39.38,9x19mm,0.694,4890,Type A,Pistol,Yes
+wpn_walther_custom,Walther P99,56.64,72.91,46,285,16,400,355,86%,39.38,9x19mm,0.694,5680,Type A,Pistol,Yes
+wpn_walther_p99,Walther P99,53.36,72.91,46,260,16,400,355,86%,31.12,9x19mm,0.694,4890,Type A,Pistol,No
+wpn_walther_p99_mod9,Walther P99 Custom,53.36,72.91,46,260,16,400,355,86%,39.38,9x19mm,0.86,4890,Type A,Pistol,Yes
+wpn_xm4,XM177E2,84.64,52.64,50,700,25,1000,800,88%,60,5.56x45mm,2.2,29230,Type C,Rifle,Yes
+wpn_xm8,XM8,80.64,39.36,51,750,30,1000,915,99%,79.25,5.56x45mm,3.77,43880,Type C,Rifle,No
+wpn_pp2000_operator,"PP-2000 ""Operator""",64.64,71.36,47,600,45,400,400,88%,75.25,9x19mm,1.78,19650,Type A,SMG,No

@@ -69,7 +69,7 @@ def get_wpn_hit_power(weapon): #takes some string that we will match to weapon I
     wpn_name = str(weapon) # we convert to string
     hit_power = 0.0
     try:
-        hit_power = float( weapons_df.loc[wpn_name]['hit_power'] )
+        hit_power = float( weapons_df.loc[wpn_name]['hit_power'])
     except (TypeError, KeyError):
         print('Error: bad input wpn name')
         return
@@ -220,7 +220,7 @@ def get_stalkerhit_ap(input_array):
             local_ap = local_ap + 0.04
     
     local_ap = local_ap * ap_scale * barrel_mult
-    local_ap = local_ap / air_res_function * faction_res['ap_res'] * silencer_mult * difficulty * 0.8
+    local_ap = local_ap / air_res_function * faction_res['ap_res'] * silencer_mult * difficulty * 0.8 * ammo['pellets']
     
     return local_ap
     
@@ -300,7 +300,7 @@ def shots_to_pen(input_array): #how many shots needed to destroy armor at hitzon
     loss_increment = local_ap * 0.6
     
     if local_ap * ap_scale < bone_armor:
-        shots_to_pen = math.ceil(bone_armor - local_ap * ap_scale / loss_increment) # round UP to nearest integer, since 3.1 = needs 4 shots to pen
+        shots_to_pen = math.ceil((bone_armor - (local_ap * ap_scale) ) / loss_increment) # round UP to nearest integer, since 3.1 = needs 4 shots to pen
     if shots_to_pen < 1: #clamp minimum to 1
         shots_to_pen = 1
     return shots_to_pen
@@ -332,7 +332,7 @@ def stalker_hit(input_array, bone_armor = None):
     
     local_ap = get_stalkerhit_ap(input_array)
     
-    gbo_dmg = wpn_hit_power / air_res_function * ammo['k_hit'] * bone_mult * ap_scale * 1.1 * barrel_mult * faction_res['dmg_res'] * difficulty * ammo['ammo_mult_stalker'] * silencer_mult
+    gbo_dmg = wpn_hit_power / air_res_function * ammo['k_hit'] * bone_mult * ap_scale * 1.1 * barrel_mult * faction_res['dmg_res'] * difficulty * ammo['ammo_mult_stalker'] * silencer_mult * ammo['pellets']
     
     post_armor = stalker_armor_calc(local_ap, gbo_dmg, bone_armor, hit_fraction, hp_no_penetration_penalty)
     return post_armor
@@ -414,7 +414,7 @@ title_section = dbc.NavbarSimple( #header
 intro_section = html.Div([
     dcc.Markdown('''
     This simulates the effect of taking **one shot** at a chosen target, at a specified distance, using a given weapon and ammo combo.
-    Developed by veerserif. Last updated 2024-05-28.
+    Developed by veerserif. Last updated 2024-07-25.
     ''')
 ])
 
@@ -629,7 +629,7 @@ sim_explanation = dcc.Markdown('''
                                
     The caliber swap info is not stored in the weapon configs, only the upgrade configs, and I wasn't going to spend an extra week reading those. Just turn the limiter off and pick 5.56mm.
                                
-    *Why are zombie/fracture values so scuffed?*
+    *Why are zombie/fracture/mutant values so scuffed?*
     
     I wish I knew.
 ''')
@@ -752,8 +752,8 @@ def disable_silencer_toggle(weapon):
     silenced = is_wpn_silenced(weapon, False)
     if silenced == True:
         return True, {'display':'inherit'}
-    else:
-        return False,{'display':'none'}
+    
+    return False,{'display':'none'} #default to returning False
 
 #Limit ammo to type used by weapon
 # Default output: [{'label': x[1], 'value': x[0]} for x in zip(ammo_df.index, ammo_df['name'])]
@@ -846,10 +846,11 @@ def output_cards(submit, show_override, armor_override, scale_display, weapon, b
             raise PreventUpdate
         elif (armor_override > 1) or (armor_override < 0): #if armor override is on but value too large
             raise PreventUpdate
-    if scale_display == True: #if we should mult. numbers by 100 for display
+    
+    display_scale = 1         # display_scale does nothing by default
+    if scale_display == True: # if the scale_display option is on, we should mult. numbers by 100 for readability
         display_scale = 100
-    else:
-        display_scale = 1
+        
     wpn_desc = ['Weapon base damage: {}'.format(round(weapons_df.loc[weapon]['hit_power'] * display_scale, 2)), html.Br()]
     ammo = get_ammo_stats(bullet)
     npc_dict = {}
@@ -955,19 +956,21 @@ def update_output(submit, show_override, armor_override, scale_display, weapon, 
     is_mutant = False
     outcome=[]
     output = []
-    if scale_display == True: #if the display SHOULD be scaled
+
+    display_scale = 1         #by default, display_scale does nothing
+    if scale_display == True: #if scale_display option is ON, multiply values by 100 for readability
         display_scale = 100
-    else:
-        display_scale = 1
+        
     #construct array for input
     input_array = [weapon, bullet, target, hitzone, faction, dist, barrel/100, game_difficulty, silencer]
+    if target.find('stalker') is None: #if nothing in target - raise the error *first*
+        raise PreventUpdate
     if target.find('stalker') == -1: #if not a stalker i.e. a mutant
         input_array[4] = 'other' #set faction to "other"
         is_mutant = True
     elif target.find('stalker') != -1: #if target IS stalker
         is_mutant = False
-    else: #nothing in target
-        raise PreventUpdate
+
     if show_override == False: #if user has NOT chosen to enable armor override
         armor_override = None
     
