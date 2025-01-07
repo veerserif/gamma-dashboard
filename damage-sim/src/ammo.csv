@@ -52,5 +52,5 @@ ammo_23x75_barrikada,23x75mm Barrikada,4.2,0.054,0.7,1,2.3,1,3.5,1
 ammo_9x21_sp10,9x21mm SP10,1.05,0.032,0.8,0.85,0.85,1,1,1
 ammo_20x70_buck,20x70 buckshot,0.3,0.003,1,0.9,0.85,1,2,11
 ammo_23_eco,Ecolog-23,1,0.012,0.15,0.85,0.85,1,1,1
-ammo_338_federal,.338 Federal,1,0.075,0.05,0.85,0.85,1,1,1
+ammo_338_federal,.338 Federal,10.7,0.018,0.05,0.85,0.85,1,10,1
 ammo_og-7b,PG-7V (dummy ammo info),1,0.125,1,0.85,0.85,1,1,1
