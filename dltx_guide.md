@@ -108,7 +108,7 @@ Refer to the [Modding Book Guide](https://igigog.github.io/anomaly-modding-book/
 
 Here's an example of a findroot I did for `w_kiparis.ltx`, along with its output:
 
-> `& ".\LTXDiff" findroot "G:\Games\S.T.A.L.K.E.R. Anomaly\_unpacked" "E:\Downloads\GAMMA mods" "configs\items\weapons\w_kiparis.ltx"`
+> `& ".\LTXDiff" findroot "G:\Games\S.T.A.L.K.E.R. Anomaly\_unpacked" "E:\Downloads\GAMMA mods" "configs\items\weapons\w_kiparis.ltx"` <br/>
 > `configs\system.ltx`
 
 Just like I explained above, the root file for `w_kiparis.ltx` is `configs/system.ltx`. LTXDiff always assumes there's a `gamedata` folder at the root level. 
