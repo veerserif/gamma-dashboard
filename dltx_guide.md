@@ -24,7 +24,7 @@ Let's use an example. The Kiparis' config file, `gamedata/configs/items/weapons/
 
 ```ini
 [wpn_kiparis]
-[a lot of parameters I am cutting to save space]
+; a lot of parameters I am cutting to save space
 hit_impulse                 = 20
 hit_power                   = 0.46, 0.46, 0.46, 0.46
 hit_type                    = fire_wound
