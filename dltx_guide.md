@@ -33,7 +33,7 @@ bullet_speed                = 330
 rpm                         = 850
 ```
 
-Let us say there's some mod, Mod A, that wants to change its `rpm` (rounds-per-minute, firing speed) to 1000. And another mod, Mod A that wants to change its `hit_power` (damage, effectively) to `1.0, 1.0, 1.0, 1.0`. Without DLTX, you could not have the effects of both mod at the same time - Mod A would have one copy of `w_kiparis.ltx`, and Mod B would have its version of `w_kiparis.ltx`, and you would have to pick **one**.
+Let us say there's some mod, Mod A, that wants to change its `rpm` (rounds-per-minute, firing speed) to 1000. And another mod, Mod B that wants to change its `hit_power` (damage, effectively) to `1.0, 1.0, 1.0, 1.0`. Without DLTX, you could not have the effects of both mod at the same time - Mod A would have one copy of `w_kiparis.ltx`, and Mod B would have its version of `w_kiparis.ltx`, and you would have to pick **one**.
 
 However, with DLTX, you could have the effects of both mods at the same time without any extra work on your part. Mod A could use DLTX to tell the game, "only change the `rpm` value under `[wpn_ak74]`"; Mod B could use DLTX to tell the game, "only change the `hit_power` value under `[wpn_kiparis]`". Much better for everyone involved.
 
