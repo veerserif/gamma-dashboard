@@ -16,6 +16,13 @@ Additionally I assume you are modding using Mod Organizer 2. Since I primarily w
 - Some way to figure out root files - the best would be using [LTXDiff](https://github.com/MerelyMezz/LTXDiff/releases/tag/1.4.2)
 - Optional but recommended: unpack the Anomaly config and script files by running `Anomaly/tools/db_unpacker.bat` (pretend the `_unpacked` folder is called `gamedata` and you'll understand all of the file structures)
 
+### I'm scared of reading (summary version)
+
+- Figure out the root file for the LTX you are trying to change
+- Within your mod folder, create a DLTX file in the format `mod_[root name]_[mod name].ltx` in the same location as the root file
+- Write the contents using proper DLTX syntax
+- Save it, load it, enjoy your changes.
+
 ## What is DLTX?
 
 To drastically oversimplify: Configuration (config) files tell Anomaly what things *are* in the game - what an item is called, what properties it has, and so on. Script files tell Anomaly what to do about these properties and items. Config files always end in `.ltx`, and are fed into script files (always end in `.script`), and you can do a lot by simply editing config files without ever needing to touch a script.
@@ -167,6 +174,8 @@ single_handed = 1
 The `!` before `[wpn_kiparis]` tells the game, "We want to edit the `[wpn_kiparis]` section". The lines afterward tell the game what parameters we want to add/change; in this case we are changing existing values rather than adding anything new.
 
 For more details on what you can do with DLTX, including how to delete lines, or change comma-separated values (e.g. `hit_power` which comes as a list of four things, separated by `,`), **[read the full guide](https://igigog.github.io/anomaly-modding-book/addons/dltx.html#4-syntax)**.
+
+And that is it! Save the file, load your mod in MO2, see your changes.
 
 ## Solving DLTX Conflicts
 
