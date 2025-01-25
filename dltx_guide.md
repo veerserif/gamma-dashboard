@@ -3,7 +3,7 @@
 
 This guide assumes:
 - You have a BASIC understanding of the concepts of "variables", "parameters" and "values" in code
-- You know what a configuration file is
+- You know what an Anomaly configuration file is (and therefore know what a section is)
 - You know how to open and edit an LTX file (as in, you could literally do it in Notepad)
 - You know what file structure is, as well as basic filepath notation
 
@@ -18,7 +18,9 @@ Additionally I assume you are modding using Mod Organizer 2. Since I primarily w
 
 ## What is DLTX?
 
-DLTX is a method for allowing Anomaly modders to alter Anomaly configuration files without directly overwriting them. Anomaly stores all its configs in `.ltx` files, almost always located inside the `gamedata/configs` folder. Before DLTX, if modders wanted to edit configs, this would introduce all kinds of overwriting conflicts and the need to create manual merges. DLTX avoids all of this by allowing multiple modders to edit the same config files, without forcing them to overwrite each other.
+To drastically oversimplify: Configuration (config) files tell Anomaly what things *are* in the game - what an item is called, what properties it has, and so on. Script files tell Anomaly what to do about these properties and items. Config files always end in `.ltx`, and are fed into script files (always end in `.script`), and you can do a lot by simply editing config files without ever needing to touch a script.
+
+DLTX is a method for allowing Anomaly modders to alter Anomaly configuration files without directly overwriting them. Anomaly stores its configs inside the `gamedata/configs` folder. Before DLTX, if modders wanted to edit configs, this would introduce all kinds of overwriting conflicts and the need to create manual merges. DLTX avoids all of this by allowing multiple modders to edit the same config files, without forcing them to overwrite each other.
 
 Let's use an example. The Kiparis' config file, `gamedata/configs/items/weapons/w_kiparis.ltx`, has a section that looks like this:
 
@@ -62,7 +64,9 @@ These chains can include wildcards. If we look a little further in the same `bas
 
 That tells the engine, "include all LTX files in this folder that begin with `w_` and end in `.ltx`", which would cover basically all of the weapon files.
 
-The **root file** is the ultimate "start" of any given `#include` chain. For example, if you wanted to make a DLTX file to target `w_kiparis.ltx`, the full chain of relevant LTX files looks like this:
+Often, the ultimate "end" of any given `#include` chain is the file that actually gets fed into the script. The config file that is actually read by the script, is our root file.
+
+For example, if you wanted to make a DLTX file to target `w_kiparis.ltx`, the full chain of relevant LTX files looks like this:
 
 > `w_kiparis` → `base.ltx` → `item_base.ltx` → `system.ltx`
 
@@ -80,7 +84,7 @@ gamedata/configs
 
 Therefore, if we wanted to make a DLTX file to change something in `w_kiparis.ltx`, our **root file** is `system.ltx`.
 
-> **The root file is the LAST config file in the chain of `#includes`, which includes the file that you're trying to edit.**
+> **The root file is the LAST config file in the chain of `#includes`, which includes whatever config you're editing, that is actually fed into a script for the game to use.**
 
 ### How do I figure out what my root file is?
 *LTXDiff section basically lifted from [the DLTX guide](https://igigog.github.io/anomaly-modding-book/addons/dltx.html#ltxdiff-findroot).*
@@ -91,7 +95,7 @@ The quick way is to **look at some other DLTX mod** that changes the thing that 
 
 However, this can fail because modders get things wrong (gasp) and you can wind up copying a file that actually doesn't work. It could be more comical than that, you might be copying a broken file from someone who copied that broken file from someone who just didn't know it was broken at all. So it's always best to check, if possible.
 
-The hard way is to **manually check the chain of #includes**. This is quite tricky because the names of parent LTX files aren't always obvious, and it's very possible to get lost when trying to trace them.
+The hard way is to **manually check the chain of #includes**. This is quite tricky because the names of parent LTX files aren't always obvious, and it's very possible to get lost when trying to trace them, and technically to do it properly, you also have to scour the script files to find the one that gets read into the game.
 
 The best way to do this is to use **[LTXDiff](https://github.com/MerelyMezz/LTXDiff/releases/tag/1.4.2)**, which is why I told you to get it. It's a command-line tool that can automatically figure out the root file of any LTX file for you. In order to use it, you will need to have unpacked the Anomaly game configs and scripts.
 
@@ -174,3 +178,24 @@ Let's say you have two mods that have a conflict, Mod A with `mod_system_kiparis
 > If your DLTX does not need to be in a specific order, you do not need to do anything extra to the name.
 
 If your DLTX mod absolutely MUST be in a specific place in mod order, it's best to figure out what other DLTX files might be conflicting with it, and figuring out how to name your file so that it's loaded last/first/wherever it needs to go.
+
+## DLTX FAQ
+
+**Can you combine multiple section changes into one DLTX file?** Yes. So long as these sections all have the same root file, you can alter multiple sections in the same DLTX file. For example, since basically all weapons use the `system.ltx` root, you could add any number of gun sections to our example DLTX config.
+
+**Should I make multiple DLTX files, even if I can put all my changes into one?** ***YES YOU SHOULD***. This keeps things clean and organized, making it easier for other people (and you) to remember which files change what aspects of the game.
+
+**Why do I see people writing z in the filename all the time?** Because they either:
+
+  * Want to force their DLTX to be in the bottom of the load order (and therefore win conflicts)
+  * Don't actually understand how to write DLTX files and are copying filenames, not understanding that the `z` isn't what "makes it work"
+  * Want to give me, veerserif, an aneurysm specifically
+
+**How can I figure out if there are other mods that use DLTX to alter the section I'm working on?** The best way is to use something like Notepad++'s Find-in-Folder search, and search across all files for `![your_section_id]`. Remember that all DLTX sections have to start with `!`, `@` or `!!` before the section, so you can use this to find them.
+
+### Advanced DLTX tips
+
+* A small number of LTX files *cannot* be edited via DLTX because of the way they are loaded. One prominent example includes weather LTX files
+* Technically, it is possible for a single LTX config to have more than one root, depending on the way in which it's loaded into the game (for example, it can be part of a chain of #includes that goes `your target ltx` → `config 1` → `config 2` → `root`, but the game might load both `config 1` and `root` in two separate scripts, meaning your target LTX now has two roots)
+  * In this niche case, you would need to make two DLTX files, one for each root, both containing your changes
+
