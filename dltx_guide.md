@@ -39,7 +39,7 @@ However, with DLTX, you could have the effects of both mods at the same time wit
 
 ## What is a root file and why is it important?
 
-Every DLTX file must target **one** specific LTX file to edit. Sometimes this can be very simple: you want to edit the new game loadouts, the file that controls new game loadout configs is `new_game_loadouts.ltx`, so that must be your root file. Right? Well, it's not that simple.
+Every DLTX file must target **one** specific LTX file to edit. Sometimes this can be very simple: you want to edit the new game loadouts, the file that controls new game loadout configs is `new_game_loadouts.ltx`, so that must be your root file. Right? Well, it's not always that easy.
 
 The way that Anomaly configs work is that they are "chained" together using `#include` chains. For example, let's look at the `configs/items/weapons/base.ltx` file:
 
