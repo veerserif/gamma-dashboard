@@ -127,7 +127,7 @@ Inside this folder we need to re-create the same file structure as our root - wh
 Example DLTX Mod
 └──gamedata
 |   └──configs
-|       ├──mod_system_example_dltx_mod.ltx
+|       └──mod_system_example_dltx_mod.ltx
 ```
 
 Inside that `configs` folder, we make our DLTX file. 
