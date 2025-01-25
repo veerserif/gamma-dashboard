@@ -203,6 +203,10 @@ If your DLTX mod absolutely MUST be in a specific place in mod order, it's best 
 
 **How can I figure out if there are other mods that use DLTX to alter the section I'm working on?** The best way is to use something like Notepad++'s Find-in-Folder search, and search across all files for `![your_section_id]`. Remember that all DLTX sections have to start with `!`, `@` or `!!` before the section, so you can use this to find them.
 
+**Do I have to make a new line for every single item?** Yes.
+
+**Can I mass-change the same parameter across multiple items?** No.
+
 ### Advanced DLTX tips
 
 * A small number of LTX files *cannot* be edited via DLTX because of the way they are loaded. One prominent example includes weather LTX files
