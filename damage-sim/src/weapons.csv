@@ -91,8 +91,8 @@ wpn_mp5_nimble,"MP5A3 ""Frasier""",0.56,ammo_11.43x23_fmj,False
 wpn_mp5sd,MP5SD6,0.56,ammo_9x19_fmj,True
 wpn_mp7,MP7,0.5,ammo_5.7x28_ss190,False
 wpn_oc33,OTs-33 Pernach,0.45,ammo_9x18_fmj,False
-wpn_p90gamma,FN P90,0.46,ammo_5.7x28_ss190,False
-wpn_p90_gs,FN P90,0.46,ammo_5.7x28_ss190,False
+wpn_p90gamma,FN P90 (p90gamma),0.46,ammo_5.7x28_ss190,False
+wpn_p90_gs,FN P90 (p90_gs),0.46,ammo_5.7x28_ss190,False
 wpn_pb,PB,0.45,ammo_9x18_fmj,False
 wpn_pkm_siber,PKM,0.77,ammo_pkm_100,False
 wpn_pkm_zenit_siber,"PKM ""Zenit""",0.77,ammo_pkm_100,False
@@ -133,10 +133,10 @@ wpn_sks_molot,SKS Molot,0.585,ammo_7.62x39_fmj,False
 wpn_spas12,SPAS-12,0.79,ammo_12x70_buck,False
 wpn_spas12_nimble,SPAS-12 (modern),0.83,ammo_12x70_buck,False
 wpn_sr1m,Serdyukov SR1M Gyurza,0.35,ammo_9x21_sp10,False
-wpn_sr1m_sr1upgr1,Serdyukov SR1M Gyurza Custom,0.49,ammo_9x21_sp10,False
+wpn_sr1m_sr1upgr1,Serdyukov SR1M Gyurza Custom (with kit),0.49,ammo_9x21_sp10,False
 wpn_sr1m_gurza_up,Serdyukov SR1M Gyurza Custom,0.49,ammo_9x21_sp10,False
 wpn_sr25,SR-25,1.0,ammo_7.62x51_fmj,False
-wpn_sr2_m1,SR-2M Veresk,0.35,ammo_9x21_sp10,False
+wpn_sr2_m1,SR-2M Veresk (_m1),0.35,ammo_9x21_sp10,False
 wpn_sr2_veresk,SR-2M Veresk,0.35,ammo_9x21_sp10,False
 wpn_sr2_veresk_sr2_upkit,"SR-2M Veresk ""Tactical""",0.49,ammo_9x21_sp10,False
 wpn_sv98,SV98,1.1,ammo_7.62x54_7h1,False
@@ -146,7 +146,7 @@ wpn_svd_m1,SVD,1.1,ammo_7.62x54_7h1,False
 wpn_svu,OTs-03 SVU,1.1,ammo_7.62x54_7h1,False
 wpn_svu_nimble,OTs-03A SVU-A,0.8,ammo_7.62x54_7h1,False
 wpn_toz106,TOZ-106,0.8,ammo_20x70_buck,False
-wpn_toz106_m1,TOZ-106,0.8,ammo_20x70_buck,False
+wpn_toz106_m1,TOZ-106 (_m1),0.8,ammo_20x70_buck,False
 wpn_wincheaster1300,TOZ-194,0.79,ammo_12x70_buck,False
 wpn_toz34,TOZ-34,0.8,ammo_12x70_buck,False
 wpn_toz34_mark4_23,"TOZ-34 ""Chimera Hunter""",0.53,ammo_23x75_shrapnel,False
@@ -168,7 +168,7 @@ wpn_xm4,XM177E2,0.498,ammo_5.56x45_fmj,False
 wpn_benelli_m1014,BENELLI M1014 SHOTGUN ,0.8,ammo_12x70_buck,False
 wpn_brn180,BRN-180,0.53,ammo_7.62x39_fmj,False
 wpn_mp9,Brugger Thomet MP9 ,0.47,ammo_9x19_fmj,False
-wpn_pl15_lazup_pl15,Lebedev PL-15,0.46,ammo_9x19_fmj,False
+wpn_pl15_lazup_pl15,Lebedev PL-15 (with LAM),0.46,ammo_9x19_fmj,False
 wpn_steyr_scout_big,Steyr Scout 7.62,1.0,ammo_7.62x51_fmj,False
 wpn_udp9,UDP-9 Carbine ,0.47,ammo_9x19_fmj,False
 wpn_winchester1873,Winchester Model 1873,0.7,ammo_357_hp_mag,False
