@@ -4,14 +4,14 @@ import dash_bootstrap_components as dbc
 from dash.exceptions import PreventUpdate
 #import plotly.express as px
 import pandas as pd
-import re, math, os
+import re, math
 
 # Incorporate data
 
-weapons_df = pd.read_csv('damage-sim/src/weapons2.csv', index_col = 0)
-ammo_df = pd.read_csv('damage-sim/src/ammo.csv', index_col = 0, skiprows=[1,2,3,4,5,6,7,8])
-stalkers_df = pd.read_csv('damage-sim/src/curated_npc_profiles.csv', index_col = 0)
-mutants_df = pd.read_csv('damage-sim/src/mutants.csv', index_col = 0, skiprows=[1])
+weapons_df = pd.read_csv('https://github.com/veerserif/gamma-dashboard/raw/main/damage-sim/src/weapons.csv', index_col = 0)
+ammo_df = pd.read_csv('https://github.com/veerserif/gamma-dashboard/raw/main/damage-sim/src/ammo.csv', index_col = 0, skiprows=[1,2,3,4,5,6,7,8])
+stalkers_df = pd.read_csv('https://raw.githubusercontent.com/veerserif/gamma-dashboard/main/damage-sim/src/curated_npc_profiles.csv', index_col = 0)
+mutants_df = pd.read_csv('https://github.com/veerserif/gamma-dashboard/raw/main/damage-sim/src/mutants.csv', index_col = 0, skiprows=[1])
 ids_df = pd.concat([weapons_df[['name']], ammo_df[['name']], mutants_df[['name']], stalkers_df[['name']]])
 
 #Other important data
@@ -43,9 +43,9 @@ hitzones_mutants = [ "head", "torso", "limbs", "rear", "other"]
 hitzones_stalkers = [ "head", "torso", "arms", "legs"]
 stalker_bone_mult = { "head": 3.65, "torso": 0.9, "arms": 0.4, "legs": 0.4 }
 
-# # # # # # # # # # # # # # # # # # # # 
+# # # # # # # # # # # # # # # # # # # #
 # Damage sim functions
-# # # # # # # # # # # # # # # # # # # # 
+# # # # # # # # # # # # # # # # # # # #
 
 def get_name(some_id): #gets name from namecol if it exists
     return ids_df.loc[some_id].to_list()[0]
@@ -64,7 +64,7 @@ def get_ammo_type(weapon): #returns array of allowable ammos for the weapon
         elif ammo_class.group(2) is not None:
             ammo_array = [a for a in ammo_df.index if a.find(ammo_class.group(2)) != -1]
     return ammo_array
-    
+
 def get_wpn_hit_power(weapon): #takes some string that we will match to weapon ID
     wpn_name = str(weapon) # we convert to string
     hit_power = 0.0
@@ -114,7 +114,7 @@ def is_wpn_silenced(weapon, silenced=False):
             return
     else:
         return silenced
-    
+
 def get_armor(target, hitzone="torso"): #args: target (str), id of mutant/stalker; hitzone, area hit, opt
     armor = 0.0
     bodyzone = [ "torso", "arms", "legs"]
@@ -160,7 +160,7 @@ def stalker_legs_ap(weapon, bullet): #leg-specific AP boosts; only call if targe
     else:
         final_ap = base_ap + 0.075
         return final_ap
-    
+
 def npc_faction_res(faction): #per-faction resistances
     faction_res = {'ap_res': 1.0, 'dmg_res': 1.0 } #isg_res = ap res, sin_res = dmg res
     if faction == "greh":
@@ -174,13 +174,15 @@ def npc_faction_res(faction): #per-faction resistances
         faction_res['ap_res'] = 0.7
     elif faction == "bandit":
         faction_res['ap_res'] = 1.1
+    elif faction == "zombie":
+        faction_res['dmg_res'] = 0.3
     return faction_res
 
 def get_stalkerhit_ap(input_array):
     # Array parsing
     keys = ('weapon', 'bullet', 'target', 'hitzone', 'faction', 'dist', 'barrel', 'game_difficulty', 'silencer')
     input_dict = dict(zip(keys, input_array))
-    
+
     surrendering = False #let's just not deal with surrendering atm
     gbo_dmg = 0.0
     silencer_mult = 1
@@ -195,13 +197,13 @@ def get_stalkerhit_ap(input_array):
     hit_fraction = target_d['hit_fraction']
     bone_armor = get_armor(input_dict['target'], input_dict['hitzone'])
     faction_res = npc_faction_res(input_dict['faction'])
-    
+
     wpn_hit_power = get_wpn_hit_power(input_dict['weapon'])
     air_res_function = (1 + input_dict['dist'] / 200 * (ammo['air_res'] * 0.5 / (1 - ammo['air_res'] + 0.1 )))
-    
+
     #needed for headshot AP
     buckshot = ["ammo_12x70_buck", "ammo_20x70_buck", "ammo_23x75_shrapnel"]
-    
+
     #Silencer mult handling
     if input_dict['silencer'] == True:
         silencer_mult = 1.07
@@ -209,7 +211,7 @@ def get_stalkerhit_ap(input_array):
         silencer_mult = 1.07
     else:
         silencer_mult = 1
-    
+
     #Hitzone-specific AP changes
     if input_dict['hitzone'] == "legs":
         local_ap = stalker_legs_ap(input_dict['weapon'], input_dict['bullet'])
@@ -218,12 +220,12 @@ def get_stalkerhit_ap(input_array):
             local_ap = local_ap + 0.019
         else:
             local_ap = local_ap + 0.04
-    
+
     local_ap = local_ap * ap_scale * barrel_mult
-    local_ap = local_ap / air_res_function * faction_res['ap_res'] * silencer_mult * difficulty * 0.8 * ammo['pellets']
-    
+    local_ap = local_ap / air_res_function * faction_res['ap_res'] * silencer_mult * difficulty * 0.8 * ammo['pellets'] #calculation nominally should apply across every pellet
+
     return local_ap
-    
+
 # Actual damage functions
 
 def mutant_hit(input_array):
@@ -240,25 +242,25 @@ def mutant_hit(input_array):
     crit_mult = 1.0
     bone_mult = 1.0
     gbo_dmg = 0.0
-    
+
     #special pseudogiant handling
     if input_dict['target'] == 'm_gigant_e':
         ammo_mult = ammo['gigant_ammo_mult']
-        
+
     # start deriving calculated values
     raw_dmg = weapons_df.loc[input_dict['weapon']]['hit_power'] * ammo['k_hit'] * ammo['pellets']
     air_res = ammo['air_res']
     difficulty = difficulty_mult[input_dict['game_difficulty']]
     barrel_mult = barrel_cond(input_dict['barrel'])
     bone_mult = mutant[input_dict['hitzone']]
-    
+
     #check for crits
     if mutant['crit_zone'] != "none":
         if mutant['crit_zone'] == input_dict['hitzone']:
             crit_mult = mutant['crit_hit']
-            
+
     bone_mult = bone_mult * crit_mult
-    
+
     #final calculation
     gbo_dmg = raw_dmg / ( 1 + input_dict['dist'] / 200 * ( air_res * 0.5 / ( 1 - air_res + 0.1 ))) * mutant_mult * ammo_mult * spec_monster_mult * bone_mult * cqc_mult * barrel_mult * difficulty
     #bullshit zombie modifier
@@ -282,13 +284,13 @@ def stalker_armor_calc(ap, dmg, bone_armor, hit_fraction, hp_no_penetration_pena
     if ap > bone_armor:
         did_shot_pen = True
         return did_shot_pen, new_bone_armor, dmg
-    
+
 def shots_to_pen(input_array): #how many shots needed to destroy armor at hitzone
-    
+
     # Array parsing
     keys = ('weapon', 'bullet', 'target', 'hitzone', 'faction', 'dist', 'barrel', 'game_difficulty', 'silencer')
     input_dict = dict(zip(keys, input_array))
-    
+
     shots_to_pen = 1 # min. shot to penetrate is 1
     ap_scale = 0.75 #anomaly engine default
     if input_dict['target'].find('m_') == -1: #if not mutant. i really should have made this a function.
@@ -298,9 +300,9 @@ def shots_to_pen(input_array): #how many shots needed to destroy armor at hitzon
     local_ap = get_stalkerhit_ap(input_array)
     bone_armor = get_armor(input_dict['target'], input_dict['hitzone'])
     loss_increment = local_ap * 0.6
-    
+
     if local_ap * ap_scale < bone_armor:
-        shots_to_pen = math.ceil((bone_armor - (local_ap * ap_scale) ) / loss_increment) # round UP to nearest integer, since 3.1 = needs 4 shots to pen
+        shots_to_pen = math.ceil((bone_armor - (local_ap * ap_scale)) / loss_increment) # round UP to nearest integer, since 3.1 = needs 4 shots to pen
     if shots_to_pen < 1: #clamp minimum to 1
         shots_to_pen = 1
     return shots_to_pen
@@ -310,7 +312,7 @@ def stalker_hit(input_array, bone_armor = None):
     # Array parsing
     keys = ('weapon', 'bullet', 'target', 'hitzone', 'faction', 'dist', 'barrel', 'game_difficulty', 'silencer')
     input_dict = dict(zip(keys, input_array))
-    
+
     surrendering = False #let's just not deal with surrendering atm
     gbo_dmg = 0.0
     silencer_mult = 1
@@ -326,17 +328,17 @@ def stalker_hit(input_array, bone_armor = None):
     if bone_armor == None: #allows passing of a new armor value
         bone_armor = get_armor(input_dict['target'], input_dict['hitzone'])
     faction_res = npc_faction_res(input_dict['faction'])
-    
+
     wpn_hit_power = get_wpn_hit_power(input_dict['weapon'])
     air_res_function = (1 + input_dict['dist'] / 200 * (ammo['air_res'] * 0.5 / (1 - ammo['air_res'] + 0.1 )))
-    
+
     local_ap = get_stalkerhit_ap(input_array)
-    
-    gbo_dmg = wpn_hit_power / air_res_function * ammo['k_hit'] * bone_mult * ap_scale * 1.1 * barrel_mult * faction_res['dmg_res'] * difficulty * ammo['ammo_mult_stalker'] * silencer_mult * ammo['pellets']
-    
+
+    gbo_dmg = wpn_hit_power / air_res_function * ammo['k_hit'] * bone_mult * ap_scale * 1.1 * barrel_mult * faction_res['dmg_res'] * difficulty * ammo['ammo_mult_stalker'] * silencer_mult * ammo['pellets'] #nominal dmg is multiplied by pellet number
+
     post_armor = stalker_armor_calc(local_ap, gbo_dmg, bone_armor, hit_fraction, hp_no_penetration_penalty)
     return post_armor
-    
+
 def anomaly_engine_pen(gbo_dmg, bullet, target, hitzone, armor_override=None): #how the engine handles pen or non-pen hits
     ap = ammo_df.loc[bullet]['k_ap'] #* 10
     if armor_override != None: #if armor_override is provided
@@ -414,13 +416,13 @@ title_section = dbc.NavbarSimple( #header
 intro_section = html.Div([
     dcc.Markdown('''
     This simulates the effect of taking **one shot** at a chosen target, at a specified distance, using a given weapon and ammo combo.
-    Developed by veerserif. Last updated 2024-07-25.
+    Developed by veerserif. Last updated 2025-02-27.
     ''')
 ])
 
 #design input fields here
 input_field_type =  html.Div([
-    html.P('I am shooting at a...'), 
+    html.P('I am shooting at a...'),
     html.Div([
         dbc.Button('Stalker', color='primary', id='stalker-button', n_clicks=0),
         dbc.Button('Mutant', color='primary', id='mutant-button', n_clicks=0)
@@ -429,12 +431,12 @@ input_field_type =  html.Div([
 
 input_field_weapons = html.Div([
     dbc.Label('Weapon'),
-    
+
     dbc.Select(
         id='weapons-dropdown',
         options=[{'label': x[1], 'value': x[0]} for x in zip(weapons_df.index, weapons_df['name'])]
     ),
-    
+
     dbc.Label('Integrally silenced', id='integral_silencer', style={'display':'none'}),
     dbc.Switch(id='silencer', label='Silenced', value=False),
     dbc.Label(id='barrel-cond-label', children='Barrel condition:'),
@@ -468,7 +470,8 @@ input_field_target = html.Div(children=[
                 {'label': 'Sin', 'value': 'greh'},
                 {'label': 'UNISG', 'value': 'isg'},
                 {'label':'Monolith', 'value':'monolith'},
-                {'label':'Bandit', 'value':'bandit'}
+                {'label':'Bandit', 'value':'bandit'},
+                {'label':'Zombified', 'value':'zombie'}
                 ], value='other', className='dash-bootstrap', style={'display': 'none'}),
             html.P('I hit them in the'),
             dbc.RadioItems(id='hitzone-select')
@@ -566,7 +569,7 @@ output_cards_2 = html.Div([
 
 output_damage_info = html.Div([
     dbc.Card(
-        [   
+        [
             dbc.CardHeader('Final damage output'),
             dbc.CardBody(id='output-div'),
             dbc.CardFooter('This calculator assumes all targets are on full health.')
@@ -576,20 +579,20 @@ output_damage_info = html.Div([
 sim_explanation = dcc.Markdown('''
     ##### What's the point of this?
     Sating my curiosity, practicing Python/Pandas/Dash, providing an easy tool to play around with damage calculations. Source csvs are available [on Github](https://github.com/veerserif/gamma-dashboard/tree/main/damage-sim/src).
-                               
+
     #### Sources
     Unless otherwise stated, assume all files are the version that wins all overwrites in a vanilla GAMMA installation.
     - **Ammunition**: All stats manually obtained by reading `weapon_ammo.ltx` (not making that mistake again)
-    - **Weapons**: Mainly scraped from the various weapon config files, as well as some DLTX overwrites for specific weapons (the Winchester, the Steyr, the FN2000). 
+    - **Weapons**: Mainly scraped from the various weapon config files, as well as some DLTX overwrites for specific weapons (the Winchester, the Steyr, the FN2000).
         These were then cross-checked against a partly generated, partly manual list of all obtainable weapons in GAMMA. The resulting weapons list contains all weapons can be found normally (through NPC drops, Nimble trades, or kit upgrades).
     - **Mutants**: All stats manually obtained from `gamedata/configs/creatures` mutant `.ltx` files. The relevant stats here are the same as in vanilla Anomaly.
     - **Stalker armor profiles**: This is a *curated selection* (only the most common armor profiles in use) of armor profiles that are used by GAMMA/Dux's Innumerable Character Kit. These were obtaned by checking `damages.ltx`, `model_captures`, and NPC config ltx files. I then counted the most common profiles and renamed/merged a curated list to serve as the source database for NPC armor profiles.
-    
+
     And yes - NPC profiles are provided both by armor type (e.g. Sunrise, LCS, Skat-9) *and* by faction (Monolith being the most common). Faction type has nothing to do with the NPC's actual faction - there are Eco, Freedom, Merc, Monolith models that all use the same "Monolith armor profile".
-    
+
     Damage formulae, some additional multipliers, and hitzone info all came from `grok_bo.script`. The functions here mirror those provided by `grok_bo.script` as well as the [Anomaly damage calculation](https://pastebin.com/raw/spv4YzaZ) (mutant hits only), recreated in Python.
     Other information about ammo and weapon configs was provided by this [ammo editing tutorial](https://discord.com/channels/912320241713958912/967696698065436682/1154289177693802546) by Momopate, and the [Anomaly modding handbook](https://igigog.github.io/anomaly-modding-book/configs/items/weapons/w_(weapon).ltx.html) for weapon configs.
-                                                
+
     #### Assumptions in the simulator
     Assume that **every NPC in the game** has a health value of **1.0**. This is why damage values are rarely ever over 1. Also, there are additional hard-coded multipliers present, most notably in the calculations for AP. These are not reflected in output - read the source script file to learn more.
 
@@ -607,7 +610,7 @@ sim_explanation = dcc.Markdown('''
     - Only "normal" bullet types are considered (no bad ammo in GAMMA)
     - Guns with the same name have had `(_suffix)` added by me - for example, `wpn_mp5` and `wpn_mp5_custom` are both called "MP5A3" in the game. Most of the time this doesn't matter for damage calculations since they have the same/similar stats.
     - This simulator **ignores surrendering/wounded state**, which would significantly reduce the TTK/increase damage dealt to stalkers. Stalkers in the wounded/surrendering state take double damage.
-                                                      
+
     #### Imaginary Q&A
     *How do I find out the armor profile of an NPC in the game?*
 
@@ -616,22 +619,33 @@ sim_explanation = dcc.Markdown('''
     printf("NPC armor section: %s",npc_armor_section)
     ```
     Save, run the game, shoot an NPC, then check the console - it should be in the shot report, from the *first time* you shoot a given NPC.
-                               
+
     *I shot* something *in the game, and got different numbers!*
-                               
+
     When in doubt, trust the game and not this tool. For stalkers, since the wounded/surrendering state is ignored, expect to kill stalkers *faster* in-game than this tool would suggest.
-                               
+
+    *Why do I sometimes get an average/min/max damage result, and sometimes only one?*
+
+    *deep breath* If your bullet does not penetrate the target  **stalker**'s armor, AND your shot's AP value is less than the newly-damaged-armor value, you deal a random amount of damage. Literally, there's a random multiplier involved, with the intent being that HP bullets are penalized more for non-penetrating shots.
+    In that specific situation, I decided to calculate the average, maximum and minimum damage values instead of *also* spitting out a random damage number.
+
     *Why does the ammo limiter only work if I toggle it on and off again?*
-                               
+
     Because it's a fancy disguised checkbox, that's just how it works.
-                               
+
     *Why does the ammo limiter not work on the AK-105 "Swamp Thing"?*
-                               
+
     The caliber swap info is not stored in the weapon configs, only the upgrade configs, and I wasn't going to spend an extra week reading those. Just turn the limiter off and pick 5.56mm.
-                               
+
     *Why are zombie/fracture/mutant values so scuffed?*
+
+    I wish I knew. Probably because I don't understand Anomaly's damage calcs as well.
+
+    #### Thanks
+    Thank you to momopate, Shiyon, Grok, and probably more people that I'm forgetting for helping demystify damage. Thanks to Grey for double-checking weapon/armor values.
     
-    I wish I knew.
+    ### Changelog
+    - 2025-02-27: updated faction resistances for 0.9.3.1, added "Zombie" faction in selection, fixed ammo k_hit for new .338 Federal. Haven't fixed weapons *yet*.
 ''')
 
 #do styling down there
@@ -662,7 +676,7 @@ app.layout = [
                     input_field_difficulty,
                     input_display_options,
                     input_advanced_options,
-                    
+
                     html.Div([
                         dbc.Button('Calculate', id='submit-button', n_clicks=0)
                     ], className="d-grid gap-2")
@@ -670,9 +684,9 @@ app.layout = [
                 style={'padding':'1em'}
             ),
 
-            dbc.Col([ 
+            dbc.Col([
                 #right side, outputs
-                dbc.Alert('You have missing or invalid inputs!', 
+                dbc.Alert('You have missing or invalid inputs!',
                         id='missing-input-alert',
                         color = 'warning',
                         is_open=False,
@@ -685,7 +699,7 @@ app.layout = [
                 ]),
                 dbc.Row([dbc.Col([output_damage_info])], style={'padding-top':'0.5em'})
             ], style={'padding':'1em'})
-        ]), 
+        ]),
 
     dbc.Row([dbc.Col([
         html.H3('Boring Explanations For Big Nerds'),
@@ -698,11 +712,11 @@ app.layout = [
 # Callbacks (aka. controls)
 # Do this _first_ so that it can modify all the other info, _once_
 @callback(
-        Output('faction-desc', 'hidden'), 
+        Output('faction-desc', 'hidden'),
         Output('target-type-inputs', 'options'),
         Output('target-type-inputs', 'value'),
         Output('target-div', 'style'),
-        Output('hitzone-select', 'options'), 
+        Output('hitzone-select', 'options'),
         Output('faction-select', 'style'),
         Output('target-type-description', 'children'),
         Input('mutant-button', 'n_clicks'),
@@ -716,7 +730,7 @@ def set_target_select(btn_mutant,btn_stalker):
         return False, [{'label': x[1], 'value': x[0]} for x in zip(stalkers_df.index, stalkers_df['name'])], 'stalker_sunrise', {'display': 'inherit'}, hitzones_stalkers, {'display': 'inherit'}, "My target is, or is wearing..."
     else:
         raise PreventUpdate
-    
+
 #Advanced options callback
 @callback(
         Output('advanced-options-div', 'style'),
@@ -752,8 +766,8 @@ def disable_silencer_toggle(weapon):
     silenced = is_wpn_silenced(weapon, False)
     if silenced == True:
         return True, {'display':'inherit'}
-    
-    return False,{'display':'none'} #default to returning False
+    else:
+        return False,{'display':'none'}
 
 #Limit ammo to type used by weapon
 # Default output: [{'label': x[1], 'value': x[0]} for x in zip(ammo_df.index, ammo_df['name'])]
@@ -846,11 +860,10 @@ def output_cards(submit, show_override, armor_override, scale_display, weapon, b
             raise PreventUpdate
         elif (armor_override > 1) or (armor_override < 0): #if armor override is on but value too large
             raise PreventUpdate
-    
-    display_scale = 1         # display_scale does nothing by default
-    if scale_display == True: # if the scale_display option is on, we should mult. numbers by 100 for readability
+    if scale_display == True: #if we should mult. numbers by 100 for display
         display_scale = 100
-        
+    else:
+        display_scale = 1
     wpn_desc = ['Weapon base damage: {}'.format(round(weapons_df.loc[weapon]['hit_power'] * display_scale, 2)), html.Br()]
     ammo = get_ammo_stats(bullet)
     npc_dict = {}
@@ -863,9 +876,9 @@ def output_cards(submit, show_override, armor_override, scale_display, weapon, b
         wpn_desc.extend([html.Br(), 'Your silencer is adding 7% damage on stalker hits. '])
         if is_wpn_silenced(weapon) == True: #add new line about integral silencing
             wpn_desc.extend('This weapon is integrally silenced.')
-    
 
-    ammo_desc = ['Ammo damage multiplier: x' + str(ammo['k_hit']), 
+
+    ammo_desc = ['Ammo damage multiplier: x' + str(ammo['k_hit']),
                  html.Br(),
                  'Ammo AP value: ' + str(ammo['k_ap']*10 * display_scale)]
     if target.find('stalker_') != -1: #if is stalker
@@ -876,7 +889,7 @@ def output_cards(submit, show_override, armor_override, scale_display, weapon, b
         ammo_desc.extend([html.Br(),'GBO per-ammo damage multiplier: x{}'.format(ammo['ammo_mult_mutant'])])
     if ammo['pellets'] > 1: #more than one pellet i.e. is buckshot
         ammo_desc.extend([html.Br(),'Buckshot-type round, has {} pellets per shot. This calculation assumes all pellets hit.'.format(ammo['pellets'])])
-    
+
     target_desc = []
     if target.find('stalker_') != -1: #if target is stalker
         npc_dict = get_npc_stats(target)
@@ -911,7 +924,7 @@ def output_cards(submit, show_override, armor_override, scale_display, weapon, b
 
     game_desc = ['Your game difficulty has a {:.0%} damage and AP multiplier.'.format(difficulty_mult[game_difficulty])]
 
-    #create output dictionary    
+    #create output dictionary
     output_dict = dict(
         weapon_t = get_name(weapon),
         weapon_d = wpn_desc,
@@ -956,29 +969,27 @@ def update_output(submit, show_override, armor_override, scale_display, weapon, 
     is_mutant = False
     outcome=[]
     output = []
-
-    display_scale = 1         #by default, display_scale does nothing
-    if scale_display == True: #if scale_display option is ON, multiply values by 100 for readability
+    if scale_display == True: #if the display SHOULD be scaled
         display_scale = 100
-        
+    else:
+        display_scale = 1
     #construct array for input
     input_array = [weapon, bullet, target, hitzone, faction, dist, barrel/100, game_difficulty, silencer]
-    if target.find('stalker') is None: #if nothing in target - raise the error *first*
-        raise PreventUpdate
     if target.find('stalker') == -1: #if not a stalker i.e. a mutant
         input_array[4] = 'other' #set faction to "other"
         is_mutant = True
     elif target.find('stalker') != -1: #if target IS stalker
         is_mutant = False
-
+    else: #nothing in target
+        raise PreventUpdate
     if show_override == False: #if user has NOT chosen to enable armor override
         armor_override = None
-    
+
     ttk = time_to_kill(input_array)
     if is_mutant == True: #if chosen target is mutant:
         outcome = anomaly_engine_pen(mutant_hit(input_array), bullet, target, hitzone, armor_override)
         output = [
-            'Estimated damage: {}, shots to kill: {}'.format(round(outcome[1] * display_scale, 4), ttk[0])
+            'Estimated damage: {}, rough shots to kill: {}'.format(round(outcome[1] * display_scale, 4), ttk[0])
         ]
         if outcome[0] == True:
             output.extend([html.Br(), 'Shot penetrated armor!'])
@@ -987,7 +998,7 @@ def update_output(submit, show_override, armor_override, scale_display, weapon, 
         #print(outcome) #debugging
         if outcome [0] == True: #shot penetrates armor
             output = [
-            'Estimated damage: {}, shots to kill: {}'.format(round(outcome[2] * display_scale, 6), ttk[0]),
+            'Estimated damage: {}, rough shots to kill: {}'.format(round(outcome[2] * display_scale, 6), ttk[0]),
             html.Br(),
             'Shot penetrated armor!'
             ]
@@ -999,18 +1010,18 @@ def update_output(submit, show_override, armor_override, scale_display, weapon, 
                     round(outcome[3] * display_scale, 4),
                     round(outcome[4] * display_scale, 4)
                 ),
-                html.Br(), 'Average shots to kill: {}, min. shots: {}, max. shots: {}'.format(
-                    ttk[0], 
+                html.Br(), 'Estimated average shots to kill: {}, min. shots: {}, max. shots: {}'.format(
+                    ttk[0],
                     ttk[1],
                     ttk[2]),
                 html.Br(), 'First shot did not penetrate armor. New armor value: {}'.format(round(outcome[1] * display_scale, 2)),
-                html.Br(), 'It would take {} shots to break armor.'.format(shots_to_pen(input_array))
+                html.Br(), 'Armor should break after {} shot(s).'.format(shots_to_pen(input_array))
             ])
             else: #no rand damage
                 output.extend([
                     'Estimated damage: {}, shots to kill: {}'.format(round(outcome[2] * display_scale, 6), ttk[0]),
                     html.Br(), 'First shot did not penetrate armor. New armor value: {}'.format(round(outcome[1], 2) * display_scale),
-                    html.Br(), 'It would take {} shots to break armor.'.format(shots_to_pen(input_array))
+                    html.Br(), 'Armor should break after {} shot(s).'.format(shots_to_pen(input_array))
                 ])
     return output
 
