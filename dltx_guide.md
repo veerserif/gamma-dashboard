@@ -11,7 +11,7 @@ Additionally I assume you are modding using Mod Organizer 2. Since I primarily w
 
 ### What you need
 
-- **[igigog's Anomaly Modding Book - DLTX section](https://igigog.github.io/anomaly-modding-book/tutorials/addons/dltx.html)** open and ready to reference, at all times
+- **[Anomaly Modding Book - DLTX section](https://anomaly-modding-book.netlify.app/docs/tutorials/addons/dltx)** open and ready to reference, at all times
 - Some sort of text editor for DLTX files. I recommend [Notepad++](https://notepad-plus-plus.org/downloads/) at a minimum
 - Some way to figure out root files - the best would be using [LTXDiff](https://github.com/MerelyMezz/LTXDiff/releases/tag/1.4.2)
 - Optional but recommended: unpack the Anomaly config and script files by running `Anomaly/tools/db_unpacker.bat` (pretend the `_unpacked` folder is called `gamedata` and you'll understand all of the file structures)
@@ -94,7 +94,7 @@ Therefore, if we wanted to make a DLTX file to change something in `w_kiparis.lt
 > **The root file is the LAST config file in the chain of `#includes`, which includes whatever config you're editing, that is actually fed into a script for the game to use.**
 
 ### How do I figure out what my root file is?
-*LTXDiff section basically lifted from [the DLTX guide](https://igigog.github.io/anomaly-modding-book/tutorials/addons/dltx.html#ltxdiff-findroot).*
+*LTXDiff section basically lifted from [the DLTX guide](https://anomaly-modding-book.netlify.app/docs/tutorials/addons/dltx/#ltxdiff-findroot).*
 
 There's the quick way, the hard way, and the good way.
 
@@ -111,7 +111,10 @@ To use it:
 - In that Powershell window, type the following then press Enter:
 > `& LTXDiff findroot "[Base Folder]" "[Mod Folder]" "[Relative Path to File]"`
 
-Refer to the [Modding Book Guide](https://igigog.github.io/anomaly-modding-book/tutorials/addons/dltx.html#ltxdiff-findroot) on how to use LTXDiff to figure out what "Base Folder", "Mod Folder" and "Relative Path to File" should be.
+where:
+- `[Base Folder]`: the filepath to the unpacked Anomaly folder (e.g. for me it's `G:\Anomaly/appdata/_unpacked`)
+- `[Mod Folder]`: the filepath to **your mod's** folder (e.g. `G:\GAMMA\mods\whatever_your_mod_folder_is`)
+- `[Relative path to file]`: the filepath to the LTX file that you are targeting, with the root file being `gamedata` (e.g. `config\items\weapons\w_kiparis.ltx` to use the Kiparis example)
 
 Here's an example of a findroot I did for `w_kiparis.ltx`, along with its output:
 
@@ -151,11 +154,11 @@ The mod name must be **unique**, that is, not the same as any other DLTX file.
 
 ### DLTX file contents and syntax
 
-*The [full guide](https://igigog.github.io/anomaly-modding-book/tutorials/addons/dltx.html#4-syntax) is in the Modding Book*.
+*The [full guide](https://anomaly-modding-book.netlify.app/docs/tutorials/addons/dltx/#4-syntax) is in the Modding Book*.
 
 The inside of the file is relatively simple. We merely specify the section we want to edit (the part inside `[square brackets]`), then what we want to change underneath.
 
-In order to change fire rate, cost, and "handedness", we want to change these parameters (refer to the [weapon config parameters](https://igigog.github.io/anomaly-modding-book/configs/items/weapons/w_(weapon).ltx.html) reference from the modding book)
+In order to change fire rate, cost, and "handedness", we want to change these parameters (refer to the [weapon config parameters](https://anomaly-modding-book.netlify.app/docs/references/configs/items/weapons/weapon-ammo) reference from the modding book)
 
 * `rpm` for fire rate
 * `cost` for cost
@@ -173,7 +176,7 @@ single_handed = 1
 
 The `!` before `[wpn_kiparis]` tells the game, "We want to edit the `[wpn_kiparis]` section". The lines afterward tell the game what parameters we want to add/change; in this case we are changing existing values rather than adding anything new.
 
-For more details on what you can do with DLTX, including how to delete lines, or change comma-separated values (e.g. `hit_power` which comes as a list of four things, separated by `,`), **[read the full guide](https://igigog.github.io/anomaly-modding-book/tutorials/addons/dltx.html#4-syntax)**.
+For more details on what you can do with DLTX, including how to delete lines, or change comma-separated values (e.g. `hit_power` which comes as a list of four things, separated by `,`), **[read the full guide](https://anomaly-modding-book.netlify.app/docs/tutorials/addons/dltx/#4-syntax)**.
 
 And that is it! Save the file, load your mod in MO2, see your changes.
 
@@ -212,4 +215,5 @@ If your DLTX mod absolutely MUST be in a specific place in mod order, it's best 
 * A small number of LTX files *cannot* be edited via DLTX because of the way they are loaded. One prominent example includes weather LTX files
 * Technically, it is possible for a single LTX config to have more than one root, depending on the way in which it's loaded into the game (for example, it can be part of a chain of #includes that goes `your target ltx` → `config 1` → `config 2` → `root`, but the game might load both `config 1` and `root` in two separate scripts, meaning your target LTX now has two roots)
   * In this niche case, you would need to make two DLTX files, one for each root, both containing your changes
+
 
