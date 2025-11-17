@@ -1,5 +1,5 @@
 ## Veer's DLTX Guide
-*Last updated: 2025-09-10*
+*Last updated: 2025-11-17*
 
 This guide assumes:
 - You have a BASIC understanding of the concepts of "variables", "parameters" and "values" in code
@@ -215,6 +215,7 @@ If your DLTX mod absolutely MUST be in a specific place in mod order, it's best 
 * A small number of LTX files *cannot* be edited via DLTX because of the way they are loaded. One prominent example includes weather LTX files
 * Technically, it is possible for a single LTX config to have more than one root, depending on the way in which it's loaded into the game (for example, it can be part of a chain of #includes that goes `your target ltx` → `config 1` → `config 2` → `root`, but the game might load both `config 1` and `root` in two separate scripts, meaning your target LTX now has two roots)
   * In this niche case, you would need to make two DLTX files, one for each root, both containing your changes
+
 
 
 
