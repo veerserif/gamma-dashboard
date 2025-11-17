@@ -109,7 +109,7 @@ The best way to do this is to use **[LTXDiff](https://github.com/MerelyMezz/LTXD
 To use it:
 - Open a Powershell window in the folder where you installed LTXDiff (I put mine in `Anomaly/tools`). You can do `Shift + RMB` to get a context menu option to "Open Powershell Window Here".
 - In that Powershell window, type the following then press Enter:
-> `& LTXDiff findroot "[Base Folder]" "[Mod Folder]" "[Relative Path to File]"`
+> `& ".\LTXDiff" findroot "[Base Folder]" "[Mod Folder]" "[Relative Path to File]"`
 
 where:
 - `[Base Folder]`: the filepath to the unpacked Anomaly folder (e.g. for me it's `G:\Anomaly/appdata/_unpacked`)
@@ -215,6 +215,7 @@ If your DLTX mod absolutely MUST be in a specific place in mod order, it's best 
 * A small number of LTX files *cannot* be edited via DLTX because of the way they are loaded. One prominent example includes weather LTX files
 * Technically, it is possible for a single LTX config to have more than one root, depending on the way in which it's loaded into the game (for example, it can be part of a chain of #includes that goes `your target ltx` → `config 1` → `config 2` → `root`, but the game might load both `config 1` and `root` in two separate scripts, meaning your target LTX now has two roots)
   * In this niche case, you would need to make two DLTX files, one for each root, both containing your changes
+
 
 
 
